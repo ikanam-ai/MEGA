@@ -1,0 +1,65 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MEGA - Make Evaluation Great Again</title>
+  <desc id="desc">MEGA research umbrella logo with three measurement tracks: VIBE, STONIC, and PROOF.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.56" stop-color="#172033"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="256" y1="84" x2="256" y2="336" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67E8F9"/>
+      <stop offset="0.5" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <filter id="soft" x="0" y="0" width="1200" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#020617" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect x="24" y="24" width="1152" height="372" rx="34" fill="url(#panel)" filter="url(#soft)"/>
+  <rect x="25" y="25" width="1150" height="370" rx="33" stroke="#334155" stroke-opacity="0.8" stroke-width="2"/>
+
+  <g transform="translate(94 62)">
+    <circle cx="148" cy="148" r="126" stroke="#475569" stroke-width="2"/>
+    <circle cx="148" cy="148" r="94" stroke="#334155" stroke-width="2" stroke-dasharray="10 12"/>
+    <path d="M148 20A128 128 0 0 1 276 148" stroke="#67E8F9" stroke-width="14" stroke-linecap="round"/>
+    <path d="M276 148A128 128 0 0 1 148 276" stroke="#F59E0B" stroke-width="14" stroke-linecap="round"/>
+    <path d="M148 276A128 128 0 0 1 20 148" stroke="#34D399" stroke-width="14" stroke-linecap="round"/>
+    <path d="M148 20A128 128 0 0 0 20 148" stroke="#A78BFA" stroke-width="14" stroke-linecap="round"/>
+
+    <line x1="148" y1="44" x2="148" y2="252" stroke="#64748B" stroke-width="2"/>
+    <line x1="44" y1="148" x2="252" y2="148" stroke="#64748B" stroke-width="2"/>
+    <path d="M82 214L214 82" stroke="#64748B" stroke-width="2"/>
+    <path d="M82 82L214 214" stroke="#64748B" stroke-width="2"/>
+
+    <circle cx="148" cy="148" r="54" fill="#0F172A" stroke="#E5E7EB" stroke-width="3"/>
+    <path d="M117 164L148 84L179 164L148 150L117 164Z" fill="#E5E7EB"/>
+    <path d="M129 188L148 150L167 188H129Z" fill="#94A3B8"/>
+
+    <circle cx="148" cy="20" r="8" fill="#67E8F9"/>
+    <circle cx="276" cy="148" r="8" fill="#F59E0B"/>
+    <circle cx="148" cy="276" r="8" fill="#34D399"/>
+    <circle cx="20" cy="148" r="8" fill="#A78BFA"/>
+  </g>
+
+  <g transform="translate(420 98)">
+    <text x="0" y="92" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="104" font-weight="800" letter-spacing="8">MEGA</text>
+    <text x="4" y="144" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="600">Make Evaluation Great Again</text>
+    <text x="4" y="198" fill="#94A3B8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22">LLM worldview passports across affect, values, and facts</text>
+
+    <g transform="translate(4 238)" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">
+      <rect x="0" y="0" width="146" height="42" rx="21" fill="#083344" stroke="#155E75"/>
+      <circle cx="26" cy="21" r="6" fill="#67E8F9"/>
+      <text x="44" y="27" fill="#E0F2FE">VIBE</text>
+
+      <rect x="166" y="0" width="166" height="42" rx="21" fill="#422006" stroke="#92400E"/>
+      <circle cx="192" cy="21" r="6" fill="#F59E0B"/>
+      <text x="210" y="27" fill="#FEF3C7">STONIC</text>
+
+      <rect x="352" y="0" width="156" height="42" rx="21" fill="#052E16" stroke="#166534"/>
+      <circle cx="378" cy="21" r="6" fill="#34D399"/>
+      <text x="396" y="27" fill="#DCFCE7">PROOF</text>
+    </g>
+  </g>
+</svg>

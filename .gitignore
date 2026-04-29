@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local and generated artifacts
+*.log
+*.tmp
+*.bak
+outputs/
+runs/
+artifacts/
+checkpoints/
+
+# Large research artifacts
+results/
+item_banks/
+paper/build/
