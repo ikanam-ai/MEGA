@@ -35,50 +35,32 @@ MEGA/
   assets/
   docs/
   VIBE/
+    README.md
   STONIC/
+    README.md
   PROOF/
-```
-
-Current track layout:
-
-```text
-TRACK/
-  README.md
-```
-
-After the corresponding review gate, a track may expand into a full
-paper-specific release:
-
-```text
-TRACK/
-  README.md
-  docs/
-  configs/
-  item_banks/
-  scripts/
-  results/
-  paper/
+    README.md
 ```
 
 ## Measurement Principle
 
-Each track starts with a neutral core profile and only then measures drift
-under controlled variation of language, role, prompt format, context, time,
-or inference parameters.
-
-The shared rule is to separate the target construct from the operational
-measurement protocol. A model passport is a reproducible measurement artifact,
-not a claim that the model has human-like inner states.
+Each track starts with a neutral core profile and measures drift only after
+the core protocol is fixed.
 
 ## Release Policy
 
-Pre-publication tracks contain templates and protocol descriptions only.
-Benchmarks, executable code, item banks, model outputs, and paper artifacts
-are added only after the corresponding review gate.
+Pre-publication tracks contain placeholders only. Benchmarks, executable code,
+item banks, model outputs, and paper artifacts are added only after review.
 
 When a track is not yet accepted, its README must include:
 
 > Note: The code and benchmark would be released here after review.
+
+## Development
+
+- `main` stores the public repository state.
+- `develop` is the integration branch.
+- Changes should be made in short-lived branches and merged through pull requests.
 
 ## Current Status
 
