@@ -1,0 +1,11 @@
+model:
+  slug: qwen36_27b
+  served_model_name: Qwen3.6-27B
+  family: qwen
+  architecture: dense
+  params_total: 27b
+  language_focus: [en, zh, multilingual]
+  eval:
+    thinking: auto
+    parallelism: 50
+  notes: "Qwen 3.6 27B dense."

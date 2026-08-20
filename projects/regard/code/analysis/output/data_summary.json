@@ -1,0 +1,33 @@
+{
+  "n_targets": 500,
+  "countries": {
+    "Armenia": 39,
+    "Azerbaijan": 42,
+    "Belarus": 41,
+    "Georgia": 40,
+    "Kazakhstan": 43,
+    "Kyrgyzstan": 40,
+    "Moldova": 39,
+    "Russia": 45,
+    "Tajikistan": 43,
+    "Turkmenistan": 41,
+    "Ukraine": 44,
+    "Uzbekistan": 43
+  },
+  "sources": {
+    "manual_seed_catalog": 318,
+    "unesco_ich": 83,
+    "wikidata": 65,
+    "built_in_country_seed": 12,
+    "manual_preprocessing_seed": 12,
+    "unesco_chp": 10
+  },
+  "qid_nonmissing": 78,
+  "qid_unique": 78,
+  "boundary_cases": 16,
+  "generation_min": "2026-06-27 22:52:29.848248+00:00",
+  "generation_max": "2026-07-05 15:12:09.569735+00:00",
+  "n_generations": 12000,
+  "n_scores": 23999,
+  "n_paired_scored": 11999
+}

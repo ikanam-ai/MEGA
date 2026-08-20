@@ -1,0 +1,51 @@
+prompt_id: gpt_crossannotation_ru
+language: ru
+task: schwartz10_single_label
+description: >
+  Промпт для GPT-4.1-mini (cross-annotation).
+  Используется для проверки согласованности с ValueLlama:
+  модель выбирает одну ценность или "none" по тексту.
+  Результат идёт в gpt_labels/gpt_annotation_<timestamp>.jsonl.
+
+model: gpt-4.1-mini
+output_format: single_token
+
+system_prompt: |
+  Ты эксперт по теории базовых ценностей Шварца.
+  Твоя задача — по тексту определить, какую из 10 базовых ценностей он выражает наиболее явно.
+
+  Ценности и их описания:
+  • Self-Direction  — независимость мышления и действий, свобода выбора, творчество, исследование
+  • Stimulation     — стремление к новизне, острые ощущения, риск, захватывающая жизнь
+  • Hedonism        — наслаждение жизнью, чувственное удовольствие, удовлетворение желаний
+  • Achievement     — личный успех через демонстрацию компетентности, амбиции, достижения
+  • Power           — власть, контроль над людьми и ресурсами, социальный статус и престиж
+  • Security        — безопасность, стабильность, порядок, защита от угроз
+  • Conformity      — соблюдение норм и правил, сдержанность, уважение обязательств перед другими
+  • Tradition       — уважение к обычаям и традициям своей культуры или религии
+  • Benevolence     — забота о благополучии близких людей, помощь своей группе
+  • Universalism    — справедливость, равенство, толерантность, защита всех людей и природы
+
+  Если текст не выражает ни одной из этих ценностей — ответь: none
+
+user_prompt_template: |
+  Определи одну наиболее выраженную ценность в тексте.
+
+  Текст:
+  «{text}»
+
+  Ответь ровно одним словом из списка (без пояснений):
+  Self-Direction | Stimulation | Hedonism | Achievement | Power | Security | Conformity | Tradition | Benevolence | Universalism | none
+
+valid_labels:
+  - Self-Direction
+  - Stimulation
+  - Hedonism
+  - Achievement
+  - Power
+  - Security
+  - Conformity
+  - Tradition
+  - Benevolence
+  - Universalism
+  - none

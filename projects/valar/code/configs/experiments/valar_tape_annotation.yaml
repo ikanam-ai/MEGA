@@ -1,0 +1,45 @@
+experiment:
+  id: valar_tape_annotation_v1
+  title: VALAR — ValueLlama annotation of TAPE (RussianNLP/tape)
+  dataset: tape
+  annotator: valuellama_3_8b
+  task: schwartz10_value_scoring
+
+dataset:
+  source: RussianNLP/tape
+  local_path: "../../datasets/tape"
+  subsets:
+    - chegeka
+    - multiq
+    - per_ethics
+    - ru_openbook
+    - ru_worldtree
+    - sit_ethics
+    - winograd
+  text_field: inputs
+  id_field: meta
+
+annotation:
+  construct: schwartz_10d
+  label_set:
+    - Self-Direction
+    - Stimulation
+    - Hedonism
+    - Achievement
+    - Power
+    - Security
+    - Conformity
+    - Tradition
+    - Benevolence
+    - Universalism
+  output_format: json_scores_schwartz10
+  score_type: continuous  # ValueLlama outputs continuous scores, not discrete
+
+item_banks:
+  output_path: data/item_banks/valar/tape_annotation_items.jsonl
+
+scoring:
+  metrics:
+    - top1_value_per_item
+    - value_score_distribution
+    - inter_subset_value_shift

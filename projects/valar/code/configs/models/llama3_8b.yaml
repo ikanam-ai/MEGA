@@ -1,0 +1,11 @@
+model:
+  slug: llama3_8b
+  served_model_name: Meta-Llama-3-8B-Instruct
+  family: llama
+  architecture: dense
+  params_total: 8b
+  language_focus: [en, multilingual]
+  eval:
+    thinking: auto
+    parallelism: 50
+  notes: "Meta Llama 3 8B Instruct."

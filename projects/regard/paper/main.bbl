@@ -1,0 +1,111 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{buyl2026ideology}
+Buyl, M., Rogiers, A., Noels, S., Bied, G., Heiter, E., Johary, I., Mara, A.C.,
+  Romero, R., Lijffijt, J., De~Bie, T., Dominguez-Catena, I.: Large language
+  models reflect the ideology of their creators. npj Artificial Intelligence
+  \textbf{2}, ~7 (2026)
+
+\bibitem{dhamala2021bold}
+Dhamala, J., Sun, T., Kumar, V., Krishna, S., Pruksachatkun, Y., Chang, K.W.,
+  Gupta, R.: {BOLD}: Dataset and metrics for measuring biases in open-ended
+  language generation. In: Proceedings of the 2021 ACM Conference on Fairness,
+  Accountability, and Transparency. pp. 862--872. Association for Computing
+  Machinery (2021). \doi{10.1145/3442188.3445924}
+
+\bibitem{dufraisse2023madtsc}
+Dufraisse, E., Popescu, A., Tourille, J., Brun, A., Deshayes, J.: {MADTSC}: A
+  multilingual aligned news dataset for target-dependent sentiment
+  classification. In: Proceedings of the 61st Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers). pp. 8286--8305 (2023)
+
+\bibitem{durmus2023towards}
+Durmus, E., Lovitt, L., Ganguli, D., Schiefer, N., Askell, A., Bowman, S.R.,
+  Saunders, W., Joseph, N., Chen, T., et~al.: Towards measuring the
+  representation of subjective global opinions in language models (2023), arXiv
+  preprint arXiv:2306.16388
+
+\bibitem{feng2023pretraining}
+Feng, S., Park, C.Y., Liu, Y., Tsvetkov, Y.: From pretraining data to language
+  models to downstream tasks: Tracking the trails of political biases leading
+  to unfair nlp models. In: Proceedings of the 61st Annual Meeting of the
+  Association for Computational Linguistics (ACL 2023) (2023)
+
+\bibitem{gilardi2023chatgpt}
+Gilardi, F., Alizadeh, M., Kubli, M.: {ChatGPT} outperforms crowd workers for
+  text-annotation tasks. Proceedings of the National Academy of Sciences
+  \textbf{120}(30),  e2305016120 (2023). \doi{10.1073/pnas.2305016120}
+
+\bibitem{hamborg2021newsmtsc}
+Hamborg, F., Donnay, K.: {NewsMTSC}: A dataset for (multi-)target-dependent
+  sentiment classification in political news articles. In: Proceedings of the
+  16th Conference of the European Chapter of the Association for Computational
+  Linguistics. pp. 1663--1675 (2021)
+
+\bibitem{madeInChina2025}
+Haslett, D., Huang, L.T.L., Khalatbari, L., Hsiao, J.H.w., Chan, A.B.: Made-in
+  china, thinking in america: {U.S.} values persist in chinese {LLM}s (2025),
+  arXiv preprint arXiv:2512.13723
+
+\bibitem{inoshita2026llms}
+Inoshita, K., Zhou, X., Kawai, A., Yada, K.: {LLMs} capture emotion labels, not
+  emotion uncertainty: Distributional analysis and calibration of human--{LLM}
+  judgment gaps (2026), arXiv preprint arXiv:2604.27345
+
+\bibitem{mehrabian1974approach}
+Mehrabian, A., Russell, J.A.: An Approach to Environmental Psychology. MIT
+  Press, Cambridge, MA (1974)
+
+\bibitem{mohammad2018obtaining}
+Mohammad, S.M.: Obtaining reliable human ratings of valence, arousal, and
+  dominance for 20,000 english words. In: Proceedings of the 56th Annual
+  Meeting of the Association for Computational Linguistics (ACL 2018). pp.
+  174--184 (2018)
+
+\bibitem{li2024culturepark}
+Myung, J., Lee, N., Zhou, Y., Jin, J., Putri, R.A., Antypas, D., Borkan, H.,
+  et~al.: Blend: A benchmark for llms on everyday knowledge in diverse cultures
+  and languages. In: Advances in Neural Information Processing Systems (NeurIPS
+  2024) (2024)
+
+\bibitem{naous2024having}
+Naous, T., Ryan, M.J., Ritter, A., Xu, W.: Having beer after prayer? measuring
+  cultural bias in large language models. In: Proceedings of the 62nd Annual
+  Meeting of the Association for Computational Linguistics (ACL 2024) (2024)
+
+\bibitem{echoes2026geopolitical}
+Pacheco, A.G.C., Cavalini, A., Comarela, G.: Echoes of power: Investigating
+  geopolitical bias in {US} and {China} large language models. Humanities and
+  Social Sciences Communications  \textbf{13}, ~675 (2026).
+  \doi{10.1057/s41599-026-06577-6}
+
+\bibitem{rottger2024political}
+R{\"o}ttger, P., Hofmann, V., Pyatkin, V., Hinck, M., Kirk, H., Schuetze, H.,
+  Hovy, D.: Political compass or spinning arrow? towards more meaningful
+  evaluations for values and opinions in large language models. In: Proceedings
+  of the 62nd Annual Meeting of the Association for Computational Linguistics
+  (Volume 1: Long Papers). pp. 15295--15311 (2024)
+
+\bibitem{russell1980circumplex}
+Russell, J.A.: A circumplex model of affect. Journal of Personality and Social
+  Psychology  \textbf{39}(6),  1161--1178 (1980)
+
+\bibitem{santurkar2023whose}
+Santurkar, S., Durmus, E., Ladhak, F., Lee, C., Liang, P., Hashimoto, T.: Whose
+  opinions do language models reflect? In: Proceedings of the 40th
+  International Conference on Machine Learning (ICML 2023) (2023)
+
+\bibitem{tao2024cultural}
+Tao, Y., Viberg, O., Baker, R.S., Kizilcec, R.F.: Cultural bias and cultural
+  alignment of large language models. PNAS Nexus  \textbf{3}(9),  pgae346
+  (2024)
+
+\bibitem{warriner2013norms}
+Warriner, A.B., Kuperman, V., Brysbaert, M.: Norms of valence, arousal, and
+  dominance for 13,915 {English} lemmas. Behavior Research Methods
+  \textbf{45}(4),  1191--1207 (2013)
+
+\end{thebibliography}

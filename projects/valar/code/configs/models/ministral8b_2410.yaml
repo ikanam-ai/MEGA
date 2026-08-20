@@ -1,0 +1,11 @@
+model:
+  slug: ministral8b_2410
+  served_model_name: Ministral-8B-Instruct-2410
+  family: mistral
+  architecture: dense
+  params_total: 8b
+  language_focus: [en, multilingual]
+  eval:
+    thinking: never
+    parallelism: 50
+  notes: "Ministral 8B Oct-2024 — disable chat_template_kwargs."

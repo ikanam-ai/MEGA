@@ -1,0 +1,33 @@
+prompt_id: valuellama_annotation
+language: en
+task: schwartz10_value_scoring
+description: >
+  Промпты для ValueLlama (completion-режим, не chat).
+  Модель опрашивается дважды на каждую пару (текст, ценность):
+  сначала на релевантность (yes/no), затем на валентность (support/oppose/either).
+  Ответ не парсится как текст — используются logprobs первого токена.
+
+notes: >
+  Порог релевантности: RELEVANCE_THRESHOLD = 0.5 (p_yes > 0.5 → релевантно).
+  Итоговый score = p_support - p_oppose (None если p_either > обоих).
+  Промпты взяты из оригинального ValueLlama (Kiesel et al., 2023).
+
+relevance_template: |
+  [Task] Given a sentence and a value, determine whether the sentence is relevant to the value. If the sentence is relevant to the value, output "yes", otherwise output "no".
+  Sentence: {sentence}
+  Value: {value}
+  Output:
+
+valence_template: |
+  [Task] Given a sentence and a value, determine whether the sentence supports or opposes the value. If the sentence supports the value, output "support". If the sentence opposes the value, output "oppose". If you need more context to make a decision, output "either".
+  Sentence: {sentence}
+  Value: {value}
+  Output:
+
+output_tokens:
+  relevance: [yes, no]
+  valence: [support, oppose, either]
+
+scoring:
+  relevance_threshold: 0.5
+  value_score: "p_support - p_oppose (None if p_either is highest)"

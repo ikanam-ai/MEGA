@@ -1,0 +1,12 @@
+model:
+  slug: qwen36_35b_moe
+  served_model_name: Qwen3.6-35B-A3B
+  family: qwen
+  architecture: moe
+  params_total: 35b
+  params_active: 3b
+  language_focus: [en, zh, multilingual]
+  eval:
+    thinking: auto
+    parallelism: 50
+  notes: "Qwen 3.6 MoE, 35B total / 3B active."

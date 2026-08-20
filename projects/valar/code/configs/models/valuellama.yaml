@@ -1,0 +1,39 @@
+model_registry:
+  id: valar_valuellama_v1
+  description: ValueLlama-3-8B annotator registry. Served via vLLM OpenAI-compatible endpoint.
+  api:
+    provider: openai_compatible
+    default_base_url: http://127.0.0.1:8000/v1
+    base_url_env: VALAR_VALUELLAMA_API_BASE_URL
+    api_key_env: VALAR_VALUELLAMA_API_KEY
+    default_api_key: EMPTY
+    request_field_policy:
+      allowed_payload_fields:
+        - top_k
+        - min_p
+        - presence_penalty
+        - frequency_penalty
+        - repetition_penalty
+        - n
+        - extra_body
+  request_defaults:
+    timeout_seconds: 120
+    parallelism: 8
+  models:
+  - id: valuellama_3_8b
+    served_model_name: ValueLlama-3-8B
+    hf_repo: Value4AI/ValueLlama-3-8B
+    ecosystem: meta
+    family: llama
+    params_hint: 8b
+    language_focus:
+      - multilingual
+    supports:
+      messages: true
+      seed: true
+      top_k: false
+      min_p: false
+      enable_thinking: false
+    roles:
+      annotator: true
+      value_scorer: true

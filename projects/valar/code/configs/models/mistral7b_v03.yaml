@@ -1,0 +1,11 @@
+model:
+  slug: mistral7b_v03
+  served_model_name: Mistral-7B-Instruct-v0.3
+  family: mistral
+  architecture: dense
+  params_total: 7b
+  language_focus: [en, multilingual]
+  eval:
+    thinking: never
+    parallelism: 50
+  notes: "Mistral 7B v0.3 — disable chat_template_kwargs."

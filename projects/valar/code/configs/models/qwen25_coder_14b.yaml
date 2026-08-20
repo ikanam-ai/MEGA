@@ -1,0 +1,11 @@
+model:
+  slug: qwen25_coder_14b
+  served_model_name: Qwen2.5-Coder-14B-Instruct
+  family: qwen
+  architecture: dense
+  params_total: 14b
+  language_focus: [en, zh, multilingual]
+  eval:
+    thinking: auto
+    parallelism: 50
+  notes: "Qwen 2.5 Coder 14B — code-tuned but good at structured JSON output."

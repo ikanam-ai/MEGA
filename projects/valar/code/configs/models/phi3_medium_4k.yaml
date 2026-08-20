@@ -1,0 +1,11 @@
+model:
+  slug: phi3_medium_4k
+  served_model_name: Phi-3-medium-4k-instruct
+  family: phi
+  architecture: dense
+  params_total: 14b
+  language_focus: [en, multilingual]
+  eval:
+    thinking: auto
+    parallelism: 50
+  notes: "Microsoft Phi-3 Medium 4K context."

@@ -1,0 +1,72 @@
+\begin{thebibliography}{23}
+
+\bibitem{schwartz1992universals}
+Schwartz, S.H.: Universals in the content and structure of values: Theoretical advances and empirical tests in 20 countries. Advances in Experimental Social Psychology 25, 1--65 (1992). \doi{10.1016/S0065-2601(08)60281-6}
+
+\bibitem{schwartz2012refining}
+Schwartz, S.H., et al.: Refining the theory of basic individual values. Journal of Personality and Social Psychology 103(4), 663--688 (2012). \doi{10.1037/a0029393}
+
+\bibitem{kiesel2022identifying}
+Kiesel, J., Alshomary, M., Handke, N., Cai, X., Wachsmuth, H., Stein, B.: Identifying the human values behind arguments. In: ACL, pp. 4459--4471 (2022). \doi{10.18653/v1/2022.acl-long.306}
+
+\bibitem{kiesel2023semeval}
+Kiesel, J., et al.: SemEval-2023 Task 4: ValueEval: Identification of human values behind arguments. In: SemEval, pp. 2287--2303 (2023). \doi{10.18653/v1/2023.semeval-1.313}
+
+\bibitem{mirzakhmedova2024touche}
+Mirzakhmedova, N., et al.: The Touche23-ValueEval dataset for identifying human values behind arguments. In: LREC-COLING, pp. 16097--16113 (2024)
+
+\bibitem{ren2024valuebench}
+Ren, Y., Ye, H., Fang, H., Zhang, X., Song, G.: ValueBench: Towards comprehensively evaluating value orientations and understanding of large language models. In: ACL, pp. 2015--2040 (2024). \doi{10.18653/v1/2024.acl-long.111}
+
+\bibitem{sorensen2024value}
+Sorensen, T., et al.: Value Kaleidoscope: Engaging AI with pluralistic human values, rights, and duties. In: AAAI, pp. 19937--19947 (2024). \doi{10.1609/aaai.v38i18.29970}
+
+\bibitem{ye2025measuring}
+Ye, H., Xie, Y., Ren, Y., Fang, H., Zhang, X., Song, G.: Measuring human and AI values based on generative psychometrics with large language models. In: AAAI, pp. 26400--26408 (2025)
+
+\bibitem{liu2025invp}
+Liu, X., Liu, P., Yu, D.: What's the most important value? INVP: Investigating the value priorities of LLMs through decision-making in social scenarios. In: COLING, pp. 4725--4752 (2025)
+
+\bibitem{shen2025valueaction}
+Shen, H., Clark, N., Mitra, T.: Mind the value-action gap: Do LLMs act in alignment with their values? In: EMNLP (2025)
+
+\bibitem{han2025portrait}
+Han, J., Choi, D., Song, W., Lee, E., Jo, Y.: Value Portrait: Assessing language models' values through psychometrically and ecologically valid items. In: ACL, pp. 17119--17159 (2025)
+
+\bibitem{epstein2025measuring}
+Epstein, Z., Jahanbakhsh, F., Piccardi, T., Gallegos, I., Zhao, D., Ugander, J., Bernstein, M.: Measuring value expressions in social media posts. arXiv:2511.08453 (2025)
+
+\bibitem{milkova2026measuring}
+Milkova, M., Rudnev, M.: Measuring human value expression in social media texts: Calibrated LLM annotation and encoder transfer. arXiv:2606.11018 (2026)
+
+\bibitem{hendrycks2021ethics}
+Hendrycks, D., Burns, C., Basart, S., Critch, A., Li, J., Song, D., Steinhardt, J.: Aligning AI with shared human values. In: ICLR (2021)
+
+\bibitem{forbes2020social}
+Forbes, M., Hwang, J.D., Shwartz, V., Sap, M., Choi, Y.: Social Chemistry 101: Learning to reason about social and moral norms. In: EMNLP, pp. 653--670 (2020). \doi{10.18653/v1/2020.emnlp-main.48}
+
+\bibitem{emelin2021moral}
+Emelin, D., Le Bras, R., Hwang, J.D., Forbes, M., Choi, Y.: Moral Stories: Situated reasoning about norms, intents, actions, and consequences. In: EMNLP, pp. 698--718 (2021). \doi{10.18653/v1/2021.emnlp-main.54}
+
+\bibitem{babakov2021inappropriate}
+Babakov, N., Logacheva, V., Kozlova, O., Semenov, N., Panchenko, A.: Detecting inappropriate messages on sensitive topics that could harm a company's reputation. In: BSNLP, pp. 26--36 (2021). \doi{10.18653/v1/2021.bsnlp-1.4}
+
+\bibitem{taktasheva2022tape}
+Taktasheva, E., et al.: TAPE: Assessing few-shot Russian language understanding. In: Findings of EMNLP, pp. 2472--2497 (2022). \doi{10.18653/v1/2022.findings-emnlp.181}
+
+\bibitem{wilson1927}
+Wilson, E.B.: Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association 22(158), 209--212 (1927). \doi{10.1080/01621459.1927.10502953}
+
+\bibitem{cohen1960}
+Cohen, J.: A coefficient of agreement for nominal scales. Educational and Psychological Measurement 20(1), 37--46 (1960). \doi{10.1177/001316446002000104}
+
+\bibitem{holm1979}
+Holm, S.: A simple sequentially rejective multiple test procedure. Scandinavian Journal of Statistics 6(2), 65--70 (1979)
+
+\bibitem{wilcoxon1945}
+Wilcoxon, F.: Individual comparisons by ranking methods. Biometrics Bulletin 1(6), 80--83 (1945). \doi{10.2307/3001968}
+
+\bibitem{wilks1938}
+Wilks, S.S.: The large-sample distribution of the likelihood ratio for testing composite hypotheses. Annals of Mathematical Statistics 9(1), 60--62 (1938). \doi{10.1214/aoms/1177732360}
+
+\end{thebibliography}

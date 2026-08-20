@@ -1,0 +1,137 @@
+# Единый реестр моделей. Один универсальный HTTP-клиент (scripts/providers/http_client.py)
+# читает эту конфигурацию и умеет вызвать ЛЮБУЮ модель ниже — никакого Python-кода
+# на вендора, вся специфика вынесена в декларативные поля ниже.
+#
+# message_format — как собрать тело запроса с сообщениями (вся ветвление логики
+#                   в client.py сводится к switch по этому полю):
+#   openai     — {"messages": [{"role": "system"/"user", "content": "..."}], "model": ...,
+#                 "temperature": ..., "max_tokens": ...}
+#   anthropic  — {"system": "...", "messages": [{"role": "user", "content": "..."}], ...}
+#                 (system — отдельное top-level поле, а не сообщение)
+#   yandex     — {"modelUri": "gpt://<folder_id>/<model>",
+#                 "completionOptions": {"temperature":..., "maxTokens": "..."},
+#                 "messages": [{"role": "system"/"user", "text": "..."}]}
+#
+# auth.type:
+#   bearer_env                — Authorization: Bearer <env var>
+#   x_api_key_env              — x-api-key: <env var> (+ доп. статические headers)
+#   none                       — без заголовков авторизации (свой vLLM-сервер)
+#
+# response_path / finish_reason_path — путь до значения в JSON-ответе, через точку,
+#   индексы списков как числа, например "choices.0.message.content"
+#
+# url может содержать {ENV_VAR_NAME} — подставляется значением переменной окружения
+# (используется для адреса локального vLLM-сервера). Один общий VLLM_ENDPOINT для
+# ВСЕХ local-моделей (yandexgpt, gigachat, tpro) и для open-weight intl/judge
+# моделей (glm, gemma2_27b, qwen25_14b, qwen36_35b) — это один self-hosted
+# сервер, никакой облачной авторизации, модель выбирается полем "model" в теле
+# запроса, не отдельным портом/хостом. Подтверждено curl-проверкой: чистый
+# OpenAI-формат, auth не требуется. Только gpt4o_mini идёт через облачный
+# AITunnel-прокси (OpenAI-совместимый) — для него нужен реальный ключ в .env.
+
+generators:
+  yandexgpt:
+    role: local
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: YandexGPT-5-Lite-8B-instruct
+    message_format: openai
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+  gigachat:
+    role: local
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: GigaChat3.1-10B-A1.8B-bf16
+    message_format: openai
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+  tpro:
+    role: local
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: T-pro-it-2.1-FP8
+    message_format: openai
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+  avibe:
+    role: local
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: avibe
+    message_format: openai
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+  qwen25_14b:
+    role: international
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: Qwen2.5-14B-Instruct
+    message_format: openai
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+  glm:
+    role: international
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: GLM-4.7-Flash
+    message_format: openai
+    extra_body:
+      chat_template_kwargs:
+        enable_thinking: false
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+  gemma2_27b:
+    role: international
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: gemma-4-26B-A4B-it
+    message_format: openai
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+  ministral_14b:
+    role: international
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: Ministral-3-14B-Instruct-2512-BF16
+    message_format: openai
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+judges:
+  qwen36_35b:
+    url: "{VLLM_ENDPOINT}/chat/completions"
+    model: Qwen3.6-35B-A3B
+    message_format: openai
+    extra_body:
+      chat_template_kwargs:
+        enable_thinking: false
+    auth:
+      type: none
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason
+
+  gpt4o_mini:
+    url: https://api.openai.com/v1/chat/completions
+    model: gpt-4o-mini-2024-07-18
+    message_format: openai
+    auth:
+      type: bearer_env
+      api_key_env: OPENAI_API_KEY
+    response_path: choices.0.message.content
+    finish_reason_path: choices.0.finish_reason

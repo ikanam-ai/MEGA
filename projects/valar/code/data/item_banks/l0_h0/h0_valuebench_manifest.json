@@ -1,0 +1,66 @@
+{
+  "audit": {
+    "commit_hash": null,
+    "csv_fields": [
+      "questionnaire",
+      "item",
+      "value",
+      "agreement",
+      "question"
+    ],
+    "csv_path": "data/item_banks/stonic/h0_valuebench/_source/value_orientation.csv",
+    "download_url": null,
+    "files_found": {},
+    "pvq40_rows_found": 40,
+    "pvq40_values_found": [
+      "Achievement",
+      "Benevolence",
+      "Conformity",
+      "Hedonism",
+      "Power",
+      "Security",
+      "Self-Direction",
+      "Stimulation",
+      "Tradition",
+      "Universalism"
+    ],
+    "remote_head_commit_hash": "188773443c1f2f24ff3223e46216bd74ed91ae51",
+    "repo_url": "https://github.com/ValueByte-AI/ValueBench",
+    "required_fields_found": {
+      "agreement": true,
+      "item": true,
+      "question": true,
+      "questionnaire": true,
+      "value": true
+    }
+  },
+  "files": {
+    "all_instances_jsonl": "h0_all_instances.jsonl",
+    "conflict_recognition_jsonl": "h0_conflict_recognition_instances.jsonl",
+    "contextual_relevance_jsonl": "h0_contextual_relevance_instances.jsonl",
+    "item_to_value_jsonl": "h0_item_to_value_instances.jsonl",
+    "labels_csv": "h0_schwartz10_labels.csv",
+    "pvq40_clean_csv": "h0_pvq40_clean.csv"
+  },
+  "measurement_layer": "h0_discernment_gate",
+  "pvq40_rows": 40,
+  "source": "ValueBench PVQ40 subset",
+  "task_counts": {
+    "h0_all_instances": 100,
+    "h0_conflict_recognition": 20,
+    "h0_contextual_relevance": 40,
+    "h0_item_to_value": 40
+  },
+  "value_distribution": {
+    "Achievement": 4,
+    "Benevolence": 4,
+    "Conformity": 4,
+    "Hedonism": 3,
+    "Power": 3,
+    "Security": 5,
+    "Self-Direction": 4,
+    "Stimulation": 3,
+    "Tradition": 4,
+    "Universalism": 6
+  }
+}

@@ -1,0 +1,25 @@
+.DS_Store
+**/.DS_Store
+**/.env
+**/.env.*
+!**/.env.example
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/.venv/
+**/*.aux
+**/*.blg
+**/*.fdb_latexmk
+**/*.fls
+**/*.log
+**/*.out
+**/*.synctex.gz
+**/*.toc
+**/main.pdf
+
+# Large VALAR construction intermediates are distributed through OSF.
+projects/valar/code/data/item_banks/gpt_labels/
+projects/valar/code/data/item_banks/tape_*/
+projects/valar/code/data/item_banks/v2_sensitive_topics_full_*/
+projects/valar/code/data/item_banks/v3_inap_high_confidence_*/
+projects/valar/code/data/item_banks/v3_inap_neutral_sample_*/

@@ -1,0 +1,15 @@
+Figure 1 (task overview): Diagram of the value-recognition task. A short Russian situation is mapped to a ranked top-three tuple selected from Schwartz's ten basic values. Evaluation separates output validity, exact top-one accuracy, top-three coverage, and directed confusion structure.
+
+Figure 2 (evaluation prompt): The fixed prompt asks the model to identify the main value in a situation and return three distinct labels in rank order plus a short rationale. An example JSON response illustrates the required fields. Only the ordered labels are used for quantitative semantic metrics.
+
+Figure 3 (dataset construction): Flow diagram beginning with 70,649 Russian candidate texts from four source slices. ValueLlama assigns construction labels, 43,165 candidates are cross-annotated by GPT-4.1-mini, and 14,516 exact top-one agreements are eligible. Balanced selection produces 1,000 texts, 100 per value, followed by two independent human labels per item.
+
+Figure 4 (human annotation interface): Screenshot of the Russian-language interface used to validate reference labels. One situational text is shown above ten radio-button choices corresponding to Schwartz's ten basic values; the annotator selects the most prominent value.
+
+Figure 5 (model performance): Stacked horizontal bars for 21 model runs separate correct top-one predictions, semantic disagreements, and invalid outputs across 1,000 texts. Gemma-4-26B has the highest strict top-one accuracy. Phi-3-Medium has a substantially larger invalid-output segment and is excluded from semantic inference.
+
+Figure 6 (recognition diagnostics): Three panels show per-value recall and precision, top-three rescue rates for adjacent versus non-adjacent top-one errors, and observed versus null shares of errors by distance on the Schwartz circumplex. Universalism and Tradition have low recall but high precision; adjacent errors are much more often rescued within the top three.
+
+Figure 7 (directed confusion matrix): A ten-by-ten off-diagonal matrix reports observed error counts and observed-to-null ratios for directed value transitions. Blue cells are significant in both aggregate fixed-margin and checkpoint-level tests; orange cells are significant only in the aggregate test. Strong transitions include Tradition to Conformity and Security to Power.
+
+Figure 8 (checkpoint fingerprints): Heatmap of eight robust directed transitions for the 20-model semantic panel. Rows are checkpoints and columns are transitions, with cell labels giving transition rates within each reference value. Side bars show strict top-one and higher-order accuracy. The heatmap demonstrates large checkpoint-specific differences despite a shared set of difficult boundaries.

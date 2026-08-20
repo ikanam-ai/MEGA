@@ -1,0 +1,178 @@
+{
+  "n_total": 1000,
+  "n_per_value": 100,
+  "max_per_bank": 60,
+  "built_at": "2026-07-05T11:51:01.905592+00:00",
+  "values": {
+    "Self-Direction": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 609,
+      "tier2_pool": 527,
+      "score_min": 0.9994,
+      "score_max": 1.0,
+      "score_mean": 0.9998,
+      "bank_dist": {
+        "v3_inap_neutral_sample": 12,
+        "v3_inap_high_confidence": 27,
+        "v2_sensitive_topics_full": 59,
+        "tape_per_ethics_test": 1,
+        "tape_sit_ethics_test": 1
+      }
+    },
+    "Stimulation": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 855,
+      "tier2_pool": 1391,
+      "score_min": 0.9994,
+      "score_max": 1.0,
+      "score_mean": 0.9996,
+      "bank_dist": {
+        "v3_inap_high_confidence": 40,
+        "v2_sensitive_topics_full": 47,
+        "v3_inap_neutral_sample": 10,
+        "tape_per_ethics_train": 1,
+        "tape_sit_ethics_test": 1,
+        "tape_per_ethics_test": 1
+      }
+    },
+    "Hedonism": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 2749,
+      "tier2_pool": 2015,
+      "score_min": 0.9998,
+      "score_max": 1.0,
+      "score_mean": 0.9998,
+      "bank_dist": {
+        "v3_inap_neutral_sample": 9,
+        "v3_inap_high_confidence": 52,
+        "v2_sensitive_topics_full": 39
+      }
+    },
+    "Achievement": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 1333,
+      "tier2_pool": 663,
+      "score_min": 0.9998,
+      "score_max": 1.0,
+      "score_mean": 0.9999,
+      "bank_dist": {
+        "tape_per_ethics_test": 27,
+        "tape_sit_ethics_test": 28,
+        "v2_sensitive_topics_full": 31,
+        "v3_inap_high_confidence": 7,
+        "v3_inap_neutral_sample": 6,
+        "tape_per_ethics_train": 1
+      }
+    },
+    "Power": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 936,
+      "tier2_pool": 214,
+      "score_min": 0.9975,
+      "score_max": 0.9999,
+      "score_mean": 0.9987,
+      "bank_dist": {
+        "v2_sensitive_topics_full": 43,
+        "v3_inap_high_confidence": 54,
+        "v3_inap_neutral_sample": 3
+      }
+    },
+    "Security": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 4136,
+      "tier2_pool": 1278,
+      "score_min": 0.9999,
+      "score_max": 1.0,
+      "score_mean": 0.9999,
+      "bank_dist": {
+        "v3_inap_high_confidence": 10,
+        "tape_per_ethics_test": 21,
+        "tape_sit_ethics_test": 22,
+        "v2_sensitive_topics_full": 37,
+        "v3_inap_neutral_sample": 2,
+        "tape_per_ethics_train": 5,
+        "tape_sit_ethics_train": 3
+      }
+    },
+    "Conformity": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 981,
+      "tier2_pool": 890,
+      "score_min": 0.999,
+      "score_max": 0.9999,
+      "score_mean": 0.9995,
+      "bank_dist": {
+        "v3_inap_high_confidence": 41,
+        "v2_sensitive_topics_full": 51,
+        "v3_inap_neutral_sample": 8
+      }
+    },
+    "Tradition": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 1746,
+      "tier2_pool": 416,
+      "score_min": 0.999,
+      "score_max": 0.9999,
+      "score_mean": 0.9994,
+      "bank_dist": {
+        "v2_sensitive_topics_full": 60,
+        "tape_per_ethics_test": 3,
+        "tape_sit_ethics_test": 3,
+        "v3_inap_neutral_sample": 6,
+        "v3_inap_high_confidence": 27,
+        "tape_sit_ethics_train": 1
+      }
+    },
+    "Benevolence": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 425,
+      "tier2_pool": 265,
+      "score_min": 0.9994,
+      "score_max": 1.0,
+      "score_mean": 0.9997,
+      "bank_dist": {
+        "v2_sensitive_topics_full": 60,
+        "tape_per_ethics_test": 5,
+        "tape_sit_ethics_test": 6,
+        "v3_inap_neutral_sample": 14,
+        "v3_inap_high_confidence": 14,
+        "tape_sit_ethics_train": 1
+      }
+    },
+    "Universalism": {
+      "n_selected": 100,
+      "tier1": 100,
+      "tier2": 0,
+      "tier1_pool": 746,
+      "tier2_pool": 499,
+      "score_min": 0.9954,
+      "score_max": 1.0,
+      "score_mean": 0.9993,
+      "bank_dist": {
+        "v2_sensitive_topics_full": 60,
+        "v3_inap_neutral_sample": 8,
+        "v3_inap_high_confidence": 25,
+        "tape_per_ethics_test": 3,
+        "tape_sit_ethics_test": 4
+      }
+    }
+  }
+}

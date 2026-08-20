@@ -1,0 +1,12 @@
+model:
+  slug: gigachat31_10b
+  served_model_name: GigaChat3.1-10B-A1.8B-bf16
+  family: gigachat
+  architecture: moe
+  params_total: 10b
+  params_active: 1.8b
+  language_focus: [ru, en]
+  eval:
+    thinking: auto
+    parallelism: 50
+  notes: "MoE, Russian-first. Strong on gold-1000."

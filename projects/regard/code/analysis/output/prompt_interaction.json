@@ -1,0 +1,14 @@
+{
+  "prompt_order": [
+    "evaluative_paraphrase",
+    "evaluative_stance",
+    "neutral_descriptive"
+  ],
+  "observed_deltas": [
+    -0.004624443163435243,
+    -0.04521063355334842,
+    -0.031367058816427984
+  ],
+  "heterogeneity_stat": 0.0008513503012755584,
+  "exact_perm_p": 0.5142857142857142
+}

@@ -1,0 +1,11 @@
+model:
+  slug: qwen25_7b
+  served_model_name: Qwen2.5-7B-Instruct
+  family: qwen
+  architecture: dense
+  params_total: 7b
+  language_focus: [en, zh, multilingual]
+  eval:
+    thinking: auto
+    parallelism: 50
+  notes: "Qwen 2.5 7B Instruct."
