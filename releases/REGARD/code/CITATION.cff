@@ -3,8 +3,8 @@ message: "If you use REGARD, please cite the paper below."
 title: "REGARD: code and artifacts for Regional Affective Differences in LLMs"
 type: software
 date-released: 2026-08-19
-url: "https://github.com/ikanam-ai/MEGA/tree/main/projects/regard"
-repository-code: "https://github.com/ikanam-ai/MEGA/tree/main/projects/regard/code"
+url: "https://github.com/ikanam-ai/MEGA/tree/main/releases/REGARD"
+repository-code: "https://github.com/ikanam-ai/MEGA/tree/main/releases/REGARD/code"
 authors:
   - given-names: Andrei
     family-names: Chetvergov

@@ -3,8 +3,8 @@ message: "If you use VALAR, please cite the paper below."
 title: "VALAR: code and artifacts for Which Values Do LLMs Confuse?"
 type: software
 date-released: 2026-08-19
-url: "https://github.com/ikanam-ai/MEGA/tree/main/projects/valar"
-repository-code: "https://github.com/ikanam-ai/MEGA/tree/main/projects/valar/code"
+url: "https://github.com/ikanam-ai/MEGA/tree/main/releases/VALAR"
+repository-code: "https://github.com/ikanam-ai/MEGA/tree/main/releases/VALAR/code"
 authors:
   - given-names: Andrei
     family-names: Chetvergov

@@ -17,9 +17,47 @@
 **/*.toc
 **/main.pdf
 
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local and generated artifacts
+*.log
+*.tmp
+*.bak
+/outputs/
+/runs/
+/artifacts/
+/checkpoints/
+
+# Large research artifacts
+/results/
+/item_banks/
+paper/build/
+
 # Large VALAR construction intermediates are distributed through OSF.
-projects/valar/code/data/item_banks/gpt_labels/
-projects/valar/code/data/item_banks/tape_*/
-projects/valar/code/data/item_banks/v2_sensitive_topics_full_*/
-projects/valar/code/data/item_banks/v3_inap_high_confidence_*/
-projects/valar/code/data/item_banks/v3_inap_neutral_sample_*/
+releases/VALAR/code/data/item_banks/gpt_labels/
+releases/VALAR/code/data/item_banks/tape_*/
+releases/VALAR/code/data/item_banks/v2_sensitive_topics_full_*/
+releases/VALAR/code/data/item_banks/v3_inap_high_confidence_*/
+releases/VALAR/code/data/item_banks/v3_inap_neutral_sample_*/
