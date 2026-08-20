@@ -56,8 +56,8 @@ env/
 paper/build/
 
 # Large VALAR construction intermediates are distributed through OSF.
-releases/VALAR/code/data/item_banks/gpt_labels/
-releases/VALAR/code/data/item_banks/tape_*/
-releases/VALAR/code/data/item_banks/v2_sensitive_topics_full_*/
-releases/VALAR/code/data/item_banks/v3_inap_high_confidence_*/
-releases/VALAR/code/data/item_banks/v3_inap_neutral_sample_*/
+VALAR/code/data/item_banks/gpt_labels/
+VALAR/code/data/item_banks/tape_*/
+VALAR/code/data/item_banks/v2_sensitive_topics_full_*/
+VALAR/code/data/item_banks/v3_inap_high_confidence_*/
+VALAR/code/data/item_banks/v3_inap_neutral_sample_*/

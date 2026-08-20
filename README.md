@@ -6,7 +6,7 @@
 
 **An umbrella research repository for LLM worldview passports.**
 
-Measurement contracts first - track-local, paper-specific releases
+One repository, multiple self-contained research projects
 
 </div>
 
@@ -14,8 +14,8 @@ Measurement contracts first - track-local, paper-specific releases
 
 MEGA (**Make Evaluation Great Again**) is a shared research umbrella for
 studying large language models through complementary model-passport protocols.
-It also hosts reviewed paper releases with their source, executable code,
-data-access instructions, licenses, and citation metadata.
+Every MEGA project has its own top-level directory containing its paper,
+executable code, data-access instructions, licenses, and citation metadata.
 
 ## Tracks
 
@@ -25,12 +25,12 @@ data-access instructions, licenses, and citation metadata.
 | [`STONIC`](STONIC/) | Schwartz-Theory-Oriented Normative Integrity Check | Value profile in the Schwartz basic values space under a fixed measurement contract. |
 | [`PROOF`](PROOF/) | Profiling Reliability Of Object-level Facts | Parametric factual coverage and reliable extraction of object-level facts. |
 
-## Accepted releases
+## Published Projects
 
-| Release | Paper | Code | Data |
+| Project | Paper | Code | Data |
 | --- | --- | --- | --- |
-| [`VALAR`](releases/VALAR/) | *Which Values Do LLMs Confuse? A Schwartz-Based Recognition Study* ([arXiv:2607.20270](https://arxiv.org/abs/2607.20270)) | [source code](releases/VALAR/code/) | [OSF](https://osf.io/u56kq/overview?view_only=1c3bc242d37247de83e92113d7837be3) |
-| [`REGARD`](releases/REGARD/) | *Regional Affective Differences in LLMs* ([arXiv:2607.20722](https://arxiv.org/abs/2607.20722)) | [source code](releases/REGARD/code/) | [OSF](https://osf.io/dwcr6/overview?view_only=0e731877e6c64892b8fca563278e631a) |
+| [`VALAR`](VALAR/) | *Which Values Do LLMs Confuse? A Schwartz-Based Recognition Study* ([arXiv:2607.20270](https://arxiv.org/abs/2607.20270)) | [source code](VALAR/code/) | [OSF](https://osf.io/u56kq/overview?view_only=1c3bc242d37247de83e92113d7837be3) |
+| [`REGARD`](REGARD/) | *Regional Affective Differences in LLMs* ([arXiv:2607.20722](https://arxiv.org/abs/2607.20722)) | [source code](REGARD/code/) | [OSF](https://osf.io/dwcr6/overview?view_only=0e731877e6c64892b8fca563278e631a) |
 
 Both papers were accepted for publication in the Springer Lecture Notes in
 Computer Science proceedings of AIST 2026.
@@ -47,13 +47,14 @@ MEGA/
   VIBE/
   STONIC/
   PROOF/
-  releases/
-    VALAR/
-      paper/
-      code/
-    REGARD/
-      paper/
-      code/
+  VALAR/
+    README.md
+    paper/
+    code/
+  REGARD/
+    README.md
+    paper/
+    code/
 ```
 
 ## Measurement Principle
@@ -66,11 +67,11 @@ The shared rule is to separate the target construct from the operational
 measurement protocol. A model passport is a reproducible measurement artifact,
 not a claim that the model has human-like inner states.
 
-## Release Policy
+## Project Policy
 
-Pre-publication tracks contain templates and protocol descriptions. Benchmarks,
-executable code, item banks, model outputs, and paper artifacts are added as
-paper-specific releases after the corresponding review gate.
+Pre-publication projects contain templates and protocol descriptions.
+Benchmarks, executable code, item banks, model outputs, and paper artifacts are
+added to the corresponding project directory after the review gate.
 
 When a track is not yet accepted, its README must include:
 
@@ -78,14 +79,14 @@ When a track is not yet accepted, its README must include:
 
 ## Data distribution
 
-Large row-level research data are distributed through the release-specific OSF
-records rather than duplicated in Git. See each release's `DATA_LICENSE.md`
+Large row-level research data are distributed through the project-specific OSF
+records rather than duplicated in Git. See each project's `DATA_LICENSE.md`
 before redistributing generated outputs or source-derived text.
 
 ## Licenses
 
 The root license applies to shared MEGA materials. Code licensing is also
-stated inside each release's `code/` directory. Paper source, third-party
+stated inside each published project's `code/` directory. Paper source, third-party
 material, model outputs, and derived datasets are not automatically covered by
 the code licenses.
 

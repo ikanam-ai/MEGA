@@ -11,7 +11,7 @@ by GPT-4o-mini and checked against a human-rated subset.
 
 This directory contains the general collection and scoring pipeline and the
 exact original eight-model analysis. The 19-model paper source and scope notes
-are in the parent project directory. Full-panel clustering is conditional on
+are in the sibling `paper/` directory and the project README. Full-panel clustering is conditional on
 the primary Qwen judge; cross-judge and human comparisons are subset-based.
 
 ## Artifacts
