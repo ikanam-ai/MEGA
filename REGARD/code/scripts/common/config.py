@@ -1,8 +1,9 @@
 """Загрузка config/*.yaml и переменных окружения из .env."""
+
 from __future__ import annotations
 
 import os
-from functools import lru_cache
+from functools import cache
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +16,7 @@ CONFIG_DIR = ROOT_DIR / "config"
 load_dotenv(ROOT_DIR / ".env")
 
 
-@lru_cache(maxsize=None)
+@cache
 def load_yaml(name: str) -> dict[str, Any]:
     path = CONFIG_DIR / name
     with path.open("r", encoding="utf-8") as f:
@@ -33,7 +34,5 @@ def prompts_config() -> dict[str, Any]:
 def require_env(name: str) -> str:
     value = os.environ.get(name)
     if not value:
-        raise RuntimeError(
-            f"Переменная окружения {name} не задана. Проверьте .env (см. .env.example)."
-        )
+        raise RuntimeError(f"Переменная окружения {name} не задана. Проверьте .env (см. .env.example).")
     return value

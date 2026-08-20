@@ -1,95 +1,66 @@
-# VALAR
+# VALAR experiment code
 
-Official code and benchmark-construction pipeline for **Which Values Do LLMs
-Confuse? A Schwartz-Based Recognition Study**, accepted for the AIST 2026
-Springer LNCS proceedings.
+Minimal, complete runner for the experiments in **Which Values Do LLMs
+Confuse? A Schwartz-Based Recognition Study** (AIST 2026, LNCS).
 
-VALAR studies controlled top-1 recognition over Schwartz's ten basic values.
-The evaluation set contains 1,000 unique Russian situational texts, balanced
-across the ten labels and independently reviewed by two human annotators per
-item. The paper evaluates 21 instruction-tuned runs; 20 reliable runs form the
-semantic panel used for directed-confusion analysis.
+The repository includes the released 1,000-item Russian gold bank, the
+100-item ancillary L0 bank, exact prompts, response parsing, scoring, retry,
+and resume logic. Complete model outputs, human annotations, and statistical
+artifacts are archived on [OSF](https://osf.io/u56kq/overview?view_only=1c3bc242d37247de83e92113d7837be3).
 
-## Artifacts
+## Install
 
-- Complete model-run data and human-validation artifacts:
-  [OSF archive](https://osf.io/u56kq/overview?view_only=1c3bc242d37247de83e92113d7837be3)
-- Preprint: [arXiv:2607.20270](https://arxiv.org/abs/2607.20270)
-- Code: this repository
-
-The repository contains the released gold bank, model-assisted construction
-artifacts, prompts, and collection/evaluation scripts. The OSF archive is the
-authoritative source for the complete 21-run panel, row-level predictions,
-human labels, case codes, and statistical outputs used in the paper.
-
-## Installation
-
-Python 3.10 or newer is required.
+Python 3.11 or 3.12 is required.
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -e ".[evaluation,dev]"
+poetry install --with dev
 cp .env.example .env
 ```
 
-For local ValueLlama annotation, additionally install the `annotation` extra.
-Never commit `.env`.
+Alternatively: `python -m pip install httpx pytest ruff`.
 
-## Run Schwartz-10 evaluation
+## Run
 
-The evaluation client accepts any OpenAI-compatible endpoint. Start with a
-five-item smoke run:
+The runner accepts any OpenAI-compatible chat-completions endpoint:
 
 ```bash
-python scripts/eval/run_schwartz_eval.py \
+poetry run python run_experiment.py \
   --model MODEL_NAME \
   --api-base http://127.0.0.1:8000/v1 \
-  --smoke \
-  --no-clearml
+  --smoke
 ```
 
-Remove `--smoke` for the complete 1,000-item Russian bank and the ancillary
-100-item L0 bank. The main paper uses temperature `0`, a ranked JSON response
-with `top1`, `top2`, and `top3`, and top-1 as the primary decision.
+Remove `--smoke` for all 1,000 gold items and 100 L0 items. The protocol uses
+temperature 0 and a ranked `top1`/`top2`/`top3` JSON response. Results are
+written under `results/<model>_<UTC timestamp>/`. To continue an interrupted
+run, pass that directory with `--run-dir`.
 
-## Rebuild the evaluation bank
+Useful endpoint options:
 
-The construction flow is:
+- `--api-key` or `VALAR_API_KEY` for an authenticated endpoint;
+- `--thinking never` for servers that reject `chat_template_kwargs`;
+- `--no-system-role` for chat templates without a system role;
+- `--parallelism N` to control concurrent requests.
 
-1. pull the documented TAPE and inappropriate/sensitive-topic source slices;
-2. convert them to a common item-bank schema;
-3. annotate candidates with ValueLlama and an independent GPT classifier;
-4. retain exact model agreement, balance 100 items per value, and attach the
-   independent human labels distributed through OSF.
-
-Commands and schemas are documented in [`docs/HOW_TO_RUN.md`](docs/HOW_TO_RUN.md),
-[`docs/RUNBOOK.md`](docs/RUNBOOK.md), and
-[`docs/ANNOTATION_CONTRACT.md`](docs/ANNOTATION_CONTRACT.md).
-
-## Tests
+## Verify
 
 ```bash
-pytest -q
-python -m compileall -q valar scripts
+poetry run pytest -q
+poetry run ruff check .
+poetry run python run_experiment.py --help
 ```
 
-## Repository layout
+## Layout
 
 ```text
-configs/             model, prompt, experiment, and run configurations
-data/item_banks/     released gold bank and construction artifacts
-docs/                data contracts and runbooks
-scripts/annotate/    model-assisted annotation clients
-scripts/data/        source-to-item-bank builders
-scripts/eval/        ranked Schwartz-10 evaluation client
-tests/               parsing and value-space unit tests
-valar/               reusable Python package
+run_experiment.py   generation, parsing, scoring, retry, and resume
+data/               the two evaluation banks and their manifests
+tests/              offline unit and end-to-end tests
 ```
 
-## License and citation
+The paper's candidate-construction intermediates are intentionally not
+duplicated here: they are archival provenance rather than inputs to the final
+evaluation. They remain available through OSF and Git history.
 
-Source code is released under the MIT License. The license does not
-automatically extend to source datasets, derived text collections, or model
-outputs; see [`DATA_LICENSE.md`](DATA_LICENSE.md) and the OSF record. Citation
-metadata are provided in [`CITATION.cff`](CITATION.cff).
+Source code is MIT-licensed. Dataset and model-output terms are documented in
+`DATA_LICENSE.md`; citation metadata are in `CITATION.cff`.

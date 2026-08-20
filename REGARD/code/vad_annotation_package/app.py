@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import csv
 import html
@@ -26,7 +25,8 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-st.markdown("""
+st.markdown(
+    """
 <style>
 :root {
   --bg: #0b0f17;
@@ -94,7 +94,9 @@ html, body, [data-testid="stAppViewContainer"] { background: var(--bg); }
   background: rgba(15,23,42,0.45) !important;
 }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 
 @st.cache_data(show_spinner=False)
@@ -171,9 +173,7 @@ def save_annotation(username, item, valence, arousal, dominance, comment=""):
         "human_dominance_raw": dominance,
         "comment": comment,
     }
-    ann_path(username, item["item_id"]).write_text(
-        json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+    ann_path(username, item["item_id"]).write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def completed_count(username, assigned_ids):
@@ -185,7 +185,7 @@ def source_text_frame(text, height=580):
     doc = f"""<!doctype html><html><head><meta charset="utf-8"><style>
 html,body{{margin:0;padding:0;background:transparent;}}
 .wrap{{
-  box-sizing:border-box;height:{height-8}px;overflow-y:auto;
+  box-sizing:border-box;height:{height - 8}px;overflow-y:auto;
   border:1px solid rgba(148,163,184,0.28);border-radius:16px;
   padding:18px 22px;font-size:18px;line-height:1.6;
   background:#0f172a;color:#f8fafc;
@@ -199,18 +199,19 @@ html,body{{margin:0;padding:0;background:transparent;}}
 
 
 def slider_section(label, hint, key, default):
-    st.markdown(f"""
+    st.markdown(
+        f"""
 <div class="slider-section">
   <div class="slider-title">{label}</div>
   <div class="slider-hint">{hint}</div>
-</div>""", unsafe_allow_html=True)
-    return st.slider(label, min_value=0, max_value=10, value=default,
-                     step=1, key=key, label_visibility="collapsed")
+</div>""",
+        unsafe_allow_html=True,
+    )
+    return st.slider(label, min_value=0, max_value=10, value=default, step=1, key=key, label_visibility="collapsed")
 
 
 def login_screen():
-    st.markdown('<div class="item-title">VAD-разметка ответов языковых моделей</div>',
-                unsafe_allow_html=True)
+    st.markdown('<div class="item-title">VAD-разметка ответов языковых моделей</div>', unsafe_allow_html=True)
     st.caption("Войдите в аккаунт разметчика.")
     users = load_users()
     if not users:
@@ -260,11 +261,14 @@ def render_app():
     # ── Header ──────────────────────────────────────────────────────────────
     top_l, top_r = st.columns([0.82, 0.18])
     with top_l:
-        st.markdown(f"""
+        st.markdown(
+            f"""
 <div class="vad-topline" style="display:flex;align-items:baseline;gap:18px;margin-bottom:8px;">
-  <div class="item-title">Задание {idx+1} / {len(assigned_ids)}</div>
+  <div class="item-title">Задание {idx + 1} / {len(assigned_ids)}</div>
   <div class="done-text">{username} · сохранено {done} / {len(assigned_ids)}</div>
-</div>""", unsafe_allow_html=True)
+</div>""",
+            unsafe_allow_html=True,
+        )
         st.progress(done / len(assigned_ids))
     with top_r:
         if st.button("Выйти", use_container_width=True):
@@ -279,33 +283,43 @@ def render_app():
         target = item.get("target_name") or item.get("target") or "—"
         family = item.get("target_family") or "—"
 
-        st.markdown(f"""
+        st.markdown(
+            f"""
 <div class="target-card">
   <div class="target-name">{html.escape(str(target))}</div>
   <div class="target-meta">{html.escape(str(family))}</div>
-</div>""", unsafe_allow_html=True)
+</div>""",
+            unsafe_allow_html=True,
+        )
 
         text = item.get("response_text") or ""
         words = len(text.split())
         h = max(320, min(int(300 + words * 1.4), 720))
-        st.markdown(f'<div style="color:var(--muted);font-size:13px;margin-bottom:6px;">'
-                    f'Ответ языковой модели · {words} слов</div>', unsafe_allow_html=True)
+        st.markdown(
+            f'<div style="color:var(--muted);font-size:13px;margin-bottom:6px;">'
+            f"Ответ языковой модели · {words} слов</div>",
+            unsafe_allow_html=True,
+        )
         source_text_frame(text, height=h)
 
     # ── Right: sliders ───────────────────────────────────────────────────────
     with right:
-        st.markdown("""
+        st.markdown(
+            """
 <div style="color:var(--text);font-size:17px;font-weight:790;margin-bottom:4px;">
 Оцените ответ по трём шкалам (0–10)</div>
 <div style="color:var(--muted);font-size:13px;margin-bottom:18px;">
 Оценивайте <b>то, как текст описывает объект</b>, а не сам объект.
-</div>""", unsafe_allow_html=True)
+</div>""",
+            unsafe_allow_html=True,
+        )
 
         default_v = int(round(float(ann.get("human_valence_raw", 5))))
         default_a = int(round(float(ann.get("human_arousal_raw", 5))))
         default_d = int(round(float(ann.get("human_dominance_raw", 5))))
 
-        st.markdown("""
+        st.markdown(
+            """
 <div class="slider-section">
   <div class="slider-title">Насколько текст описывает объект позитивно или негативно?</div>
   <div class="slider-hint">
@@ -317,13 +331,15 @@ def render_app():
       <span>😍<br><b>8–10</b><br><small>восхищение,<br>гордость,<br>любовь</small></span>
     </div>
   </div>
-</div>""", unsafe_allow_html=True)
-        val = st.slider("Валентность", 0, 10, default_v, 1,
-                        key=f"val_{item_id}", label_visibility="collapsed")
+</div>""",
+            unsafe_allow_html=True,
+        )
+        val = st.slider("Валентность", 0, 10, default_v, 1, key=f"val_{item_id}", label_visibility="collapsed")
 
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
-        st.markdown("""
+        st.markdown(
+            """
 <div class="slider-section">
   <div class="slider-title">Насколько текст эмоционально окрашен?</div>
   <div class="slider-hint">
@@ -335,13 +351,17 @@ def render_app():
       <span>😱<br><b>8–10</b><br><small>тревога, восторг,<br>драма, ужас</small></span>
     </div>
   </div>
-</div>""", unsafe_allow_html=True)
-        aro = st.slider("Эмоциональная интенсивность", 0, 10, default_a, 1,
-                        key=f"aro_{item_id}", label_visibility="collapsed")
+</div>""",
+            unsafe_allow_html=True,
+        )
+        aro = st.slider(
+            "Эмоциональная интенсивность", 0, 10, default_a, 1, key=f"aro_{item_id}", label_visibility="collapsed"
+        )
 
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
-        st.markdown("""
+        st.markdown(
+            """
 <div class="slider-section">
   <div class="slider-title">Насколько текст описывает объект как доминирующего или подчинённого?</div>
   <div class="slider-hint">
@@ -353,16 +373,21 @@ def render_app():
       <span>💪<br><b>8–10</b><br><small>мощный,<br>определяет события,<br>символ силы</small></span>
     </div>
   </div>
-</div>""", unsafe_allow_html=True)
-        dom = st.slider("Сила объекта", 0, 10, default_d, 1,
-                        key=f"dom_{item_id}", label_visibility="collapsed")
+</div>""",
+            unsafe_allow_html=True,
+        )
+        dom = st.slider("Сила объекта", 0, 10, default_d, 1, key=f"dom_{item_id}", label_visibility="collapsed")
 
         st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
 
         with st.expander("Комментарий (необязательно)", expanded=False):
-            comment = st.text_area("Комментарий", value=ann.get("comment", ""),
-                                   key=f"comment_{item_id}", height=80,
-                                   label_visibility="collapsed")
+            comment = st.text_area(
+                "Комментарий",
+                value=ann.get("comment", ""),
+                key=f"comment_{item_id}",
+                height=80,
+                label_visibility="collapsed",
+            )
         comment = st.session_state.get(f"comment_{item_id}", ann.get("comment", ""))
 
         st.markdown("<div style='height:4px'></div>", unsafe_allow_html=True)
@@ -377,8 +402,7 @@ def render_app():
                 save_annotation(username, item, val, aro, dom, comment)
                 st.success("Сохранено.")
         with b3:
-            if st.button("Дальше →", disabled=(idx == len(assigned_ids) - 1),
-                         use_container_width=True):
+            if st.button("Дальше →", disabled=(idx == len(assigned_ids) - 1), use_container_width=True):
                 save_annotation(username, item, val, aro, dom, comment)
                 st.session_state["index"] = idx + 1
                 st.rerun()

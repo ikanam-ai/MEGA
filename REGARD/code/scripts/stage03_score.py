@@ -18,6 +18,7 @@ GENERATIONS_PATH = ROOT_DIR / "data" / "generations" / "generations_raw.jsonl"
 OUTPUT_PATH = ROOT_DIR / "data" / "scores" / "judge_scores_raw.jsonl"
 
 JUDGE_CONTRACT_ID = "td_v1_contract_ru"
+PRIMARY_JUDGE = "qwen36_35b"
 DEFAULT_WORKERS = 4
 TEMPERATURE = 0.0
 MAX_TOKENS = 800
@@ -57,11 +58,15 @@ def _score_one(gen: dict, judge_id: str, system_prompt: str, user_template: str,
     with _inflight_lock:
         _inflight_started[tid] = started
     try:
-        result = call_model(judge_id, system=system_prompt, user=user_prompt, temperature=TEMPERATURE, max_tokens=MAX_TOKENS)
+        result = call_model(
+            judge_id, system=system_prompt, user=user_prompt, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+        )
         elapsed = time.monotonic() - started
         if result.finish_reason not in ("stop", "end_turn"):
-            print(f"[WARN] {gen['generation_id']} / {judge_id}: finish_reason={result.finish_reason} "
-                  f"({elapsed:.1f}s) -- скорее всего обрезано по max_tokens")
+            print(
+                f"[WARN] {gen['generation_id']} / {judge_id}: finish_reason={result.finish_reason} "
+                f"({elapsed:.1f}s) -- скорее всего обрезано по max_tokens"
+            )
         parsed = _extract_json(result.text)
     except ProviderError as e:
         elapsed = time.monotonic() - started
@@ -70,8 +75,10 @@ def _score_one(gen: dict, judge_id: str, system_prompt: str, user_template: str,
         return
     except (ValueError, json.JSONDecodeError) as e:
         elapsed = time.monotonic() - started
-        print(f"[ОШИБКА] {gen['generation_id']} / {judge_id} ({elapsed:.1f}s): {e}\n"
-              f"--- RAW RESPONSE ---\n{result.text}\n--- END RAW ---")
+        print(
+            f"[ОШИБКА] {gen['generation_id']} / {judge_id} ({elapsed:.1f}s): {e}\n"
+            f"--- RAW RESPONSE ---\n{result.text}\n--- END RAW ---"
+        )
         pbar.update(1)
         return
     finally:
@@ -107,9 +114,20 @@ def _score_one(gen: dict, judge_id: str, system_prompt: str, user_template: str,
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--judges", default=None, help="Список judge model_id через запятую (по умолчанию — все)")
     parser.add_argument(
-        "--workers", type=int, default=DEFAULT_WORKERS,
+        "--judges",
+        default=PRIMARY_JUDGE,
+        help=f"Comma-separated judge IDs (default: {PRIMARY_JUDGE}, the 19-model primary judge)",
+    )
+    parser.add_argument(
+        "--models",
+        default=None,
+        help="Optionally score only generations from these comma-separated generator IDs",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=DEFAULT_WORKERS,
         help=f"Параллельных запросов (по умолчанию {DEFAULT_WORKERS})",
     )
     args = parser.parse_args()
@@ -118,8 +136,19 @@ def main() -> None:
     if not generations:
         raise FileNotFoundError(f"{GENERATIONS_PATH} пуст или не существует — выполните Этап 2.")
 
+    requested_models = set(args.models.split(",")) if args.models else None
+    if requested_models:
+        known_models = set(models_config()["generators"])
+        unknown_models = sorted(requested_models - known_models)
+        if unknown_models:
+            raise SystemExit(f"Unknown generator model_id: {unknown_models}")
+        generations = [row for row in generations if row["model_id"] in requested_models]
+
     judges_cfg = models_config()["judges"]
-    judge_ids = args.judges.split(",") if args.judges else list(judges_cfg.keys())
+    judge_ids = args.judges.split(",")
+    unknown_judges = sorted(set(judge_ids) - set(judges_cfg))
+    if unknown_judges:
+        raise SystemExit(f"Unknown judge model_id: {unknown_judges}")
 
     contract = prompts_config()["judge"][JUDGE_CONTRACT_ID]
     system_prompt = contract["system"]
@@ -132,8 +161,10 @@ def main() -> None:
         for judge_id in judge_ids
         if f"{gen['generation_id']}::{judge_id}" not in done
     ]
-    print(f"К выполнению: {len(tasks)} из {len(generations) * len(judge_ids)} "
-          f"(пропущено готовых: {len(done)}), workers={args.workers}.")
+    print(
+        f"К выполнению: {len(tasks)} из {len(generations) * len(judge_ids)} "
+        f"(пропущено готовых: {len(done)}), workers={args.workers}."
+    )
 
     if not tasks:
         return
@@ -148,9 +179,11 @@ def main() -> None:
                 ages = sorted(now - t for t in _inflight_started.values())
             done_count = sum(1 for f in futures if f.done())
             if ages:
-                print(f"[HEARTBEAT] в полёте: {len(ages)} запросов, "
-                      f"возраст min={ages[0]:.0f}s max={ages[-1]:.0f}s "
-                      f"median={ages[len(ages) // 2]:.0f}s; futures.done()={done_count}/{len(futures)}")
+                print(
+                    f"[HEARTBEAT] в полёте: {len(ages)} запросов, "
+                    f"возраст min={ages[0]:.0f}s max={ages[-1]:.0f}s "
+                    f"median={ages[len(ages) // 2]:.0f}s; futures.done()={done_count}/{len(futures)}"
+                )
             else:
                 print(f"[HEARTBEAT] в полёте: 0 запросов (между задачами); futures.done()={done_count}/{len(futures)}")
 

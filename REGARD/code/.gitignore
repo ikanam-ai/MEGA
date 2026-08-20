@@ -1,34 +1,21 @@
 .env
 .env.*
 !.env.example
+.venv/
 __pycache__/
 *.py[cod]
-.venv/
-venv/
-*.egg-info/
-.ipynb_checkpoints/
 .pytest_cache/
 .ruff_cache/
-.mypy_cache/
 .DS_Store
 
-# Large run artifacts are distributed through OSF.
-data/archive/
+# Generated experiment artifacts are released through OSF.
 data/generations/*
 !data/generations/.gitkeep
 data/scores/*
 !data/scores/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
+analysis/output/
 
-# Human-rating inputs, assignments, credentials, and row-level outputs.
+# Human-rating inputs, credentials, and outputs.
 vad_annotation_package/data/*
 !vad_annotation_package/data/users.example.csv
 vad_annotation_package/annotations/
-vad_annotation_package/human_annotation_sample.csv
-
-# Manuscript sources are maintained in a separate private repository.
-paper/
-
-# Local tool settings.
-.claude/

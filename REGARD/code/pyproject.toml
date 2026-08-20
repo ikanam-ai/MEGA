@@ -1,36 +1,34 @@
 [tool.poetry]
-name = "regional-affective-bias"
+name = "regard-experiments"
 version = "0.1.0"
-description = "REGARD benchmark and analysis for regional affective differences in Russian-language LLM outputs"
+description = "Generation, judging, and analysis pipeline for REGARD"
+authors = ["Andrei Chetvergov <chetvergov-as@ranepa.ru>"]
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.13"
 httpx = ">=0.27"
-pydantic = ">=2.7"
 pyyaml = ">=6.0"
 python-dotenv = ">=1.0"
-pandas = ">=2.2"
-pyarrow = ">=16.0"
 tenacity = ">=8.3"
 tqdm = ">=4.66"
-json-repair = "^0.61.1"
+json-repair = ">=0.61"
 
 [tool.poetry.group.analysis]
 optional = true
 
 [tool.poetry.group.analysis.dependencies]
+numpy = ">=1.26"
+pandas = ">=2.2"
 scipy = ">=1.13"
 matplotlib = ">=3.9"
-statsmodels = ">=0.14"
-krippendorff = ">=0.8"
 
 [tool.poetry.group.dev]
 optional = true
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8.2"
-ruff = ">=0.5"
+ruff = ">=0.6"
 
 [tool.poetry.group.human]
 optional = true
@@ -39,5 +37,12 @@ optional = true
 streamlit = ">=1.36"
 
 [tool.ruff]
-line-length = 100
+line-length = 120
 target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,4 +1,5 @@
 """Чтение/запись JSONL и CSV с поддержкой докачки (resume) по уже обработанным ключам."""
+
 from __future__ import annotations
 
 import csv

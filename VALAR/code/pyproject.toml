@@ -1,90 +1,24 @@
-[build-system]
-requires = ["poetry-core>=2.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[project]
-name = "valar"
-version = "0.1.0"
-description = "VALAR benchmark and evaluation pipeline for Schwartz-10 value recognition"
-readme = "README.md"
-requires-python = ">=3.10,<4.0"
-authors = [
-  { name = "Andrei Chetvergov", email = "chetvergov-as@ranepa.ru" },
-  { name = "Stepan Ukolov" },
-  { name = "Timofei Sivoraksha" },
-  { name = "Alexander Evseev" },
-  { name = "Mikhail Solovev" },
-  { name = "Valeriia Kuschenko" },
-  { name = "Maria Chistyakova" },
-  { name = "Sergey Bolovtsov" }
-]
-dependencies = [
-  "pandas>=2.0",
-  "PyYAML>=6.0",
-  "typer>=0.12",
-  "numpy>=1.24,<2",
-  "tqdm>=4.65",
-  "openai>=1.0"
-]
-
-[project.optional-dependencies]
-annotation = [
-  "torch>=2.1",
-  "transformers>=4.40",
-  "datasets>=2.18",
-  "accelerate>=0.28",
-  "sentencepiece>=0.1.99"
-]
-evaluation = [
-  "httpx>=0.27",
-  "plotly>=5.20"
-]
-dev = [
-  "pytest>=8.0",
-  "ruff>=0.6",
-  "mypy>=1.12"
-]
-
-[project.scripts]
-valar = "valar.cli:app"
-
 [tool.poetry]
-name = "valar"
+name = "valar-experiments"
 version = "0.1.0"
-description = "VALAR benchmark and evaluation pipeline for Schwartz-10 value recognition"
+description = "Minimal runner for the VALAR Schwartz-10 recognition experiments"
 authors = ["Andrei Chetvergov <chetvergov-as@ranepa.ru>"]
-packages = [
-  { include = "valar" }
-]
+package-mode = false
 
-[tool.poetry.group.annotation.dependencies]
-torch = ">=2.1"
-transformers = ">=4.40"
-datasets = ">=2.18"
-accelerate = ">=0.28"
-sentencepiece = ">=0.1.99"
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+httpx = ">=0.27"
 
 [tool.poetry.group.dev.dependencies]
-pytest = ">=8.0"
+pytest = ">=8.2"
 ruff = ">=0.6"
-mypy = ">=1.12"
 
 [tool.ruff]
 line-length = 120
-target-version = "py310"
+target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
-ignore = ["B008"]
-
-[tool.mypy]
-python_version = "3.10"
-warn_unused_configs = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-strict_optional = true
-check_untyped_defs = true
-exclude = ["results"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

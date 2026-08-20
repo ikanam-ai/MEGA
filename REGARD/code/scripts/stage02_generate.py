@@ -1,7 +1,7 @@
-"""Этап 2 — генерация ответов 6 моделей на 500 СНГ-таргетов.
+"""Generate REGARD responses for 19 models and 500 post-Soviet targets.
 
 Вход:  data/targets/aist_cis_targets_final.csv  (target_id, target_name, prompt_target_ru, category, ...)
-Выход: data/generations/generations_raw.jsonl   (накопительно, 500 x 6 = 3000 записей)
+Выход: data/generations/generations_raw.jsonl (19 x 500 x 3 = 28,500 rows)
 
 Идемпотентно: при повторном запуске уже сгенерированные пары (target_id, model_id)
 пропускаются — можно прерывать и продолжать без потери прогресса/дублей.
@@ -12,10 +12,10 @@
 append() из разных потоков могут чередовать байты одной JSON-строки.
 
 Запуск:
-    uv run python -m scripts.stage02_generate
-    uv run python -m scripts.stage02_generate --models yandexgpt,gigachat   # только часть моделей
-    uv run python -m scripts.stage02_generate --models yandexgpt --workers 8  # 8 параллельных запросов
+    poetry run python -m scripts.stage02_generate
+    poetry run python -m scripts.stage02_generate --models yandexgpt,gigachat
 """
+
 from __future__ import annotations
 
 import argparse
@@ -35,7 +35,7 @@ OUTPUT_PATH = ROOT_DIR / "data" / "generations" / "generations_raw.jsonl"
 
 DEFAULT_PROMPT_KEY = "main"
 TEMPERATURE = 0.7
-MAX_TOKENS = 400
+MAX_TOKENS = 512
 DEFAULT_WORKERS = 4
 
 _write_lock = threading.Lock()
@@ -89,12 +89,15 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", default=None, help="Список model_id через запятую (по умолчанию — все)")
     parser.add_argument(
-        "--prompt-id", default=DEFAULT_PROMPT_KEY,
+        "--prompt-id",
+        default=DEFAULT_PROMPT_KEY,
         help="Ключ промпта: main (по умолчанию) или один из generation.robustness "
-             "в config/prompts.yaml (neutral_descriptive, evaluative_paraphrase)",
+        "в config/prompts.yaml (neutral_descriptive, evaluative_paraphrase)",
     )
     parser.add_argument(
-        "--workers", type=int, default=DEFAULT_WORKERS,
+        "--workers",
+        type=int,
+        default=DEFAULT_WORKERS,
         help=f"Параллельных запросов на одну модель (по умолчанию {DEFAULT_WORKERS})",
     )
     args = parser.parse_args()
@@ -105,6 +108,9 @@ def main() -> None:
 
     generators = models_config()["generators"]
     model_ids = args.models.split(",") if args.models else list(generators.keys())
+    unknown = sorted(set(model_ids) - set(generators))
+    if unknown:
+        raise SystemExit(f"Unknown generator model_id: {unknown}")
 
     prompt_id, prompt_template = _resolve_prompt(args.prompt_id)
     run_id = f"gen-{dt.datetime.now(dt.UTC):%Y%m%d-%H%M%S}-{uuid.uuid4().hex[:8]}"
@@ -113,8 +119,10 @@ def main() -> None:
         model_role = generators[model_id]["role"]
         done = load_done_keys(OUTPUT_PATH, _done_key)
         pending = [t for t in targets if f"{t['target_id']}::{model_id}::{prompt_id}" not in done]
-        print(f"[{model_id} / {prompt_id}] к выполнению: {len(pending)} из {len(targets)} "
-              f"(пропущено уже готовых: {len(targets) - len(pending)}), workers={args.workers}")
+        print(
+            f"[{model_id} / {prompt_id}] к выполнению: {len(pending)} из {len(targets)} "
+            f"(пропущено уже готовых: {len(targets) - len(pending)}), workers={args.workers}"
+        )
 
         if not pending:
             continue

@@ -1,23 +1,20 @@
 # Publication analysis
 
-`reproduce_publication_stats.py` rebuilds the statistics and figures used in the manuscript. It distinguishes:
+`reproduce_publication_stats.py` validates the fixed 19-model panel and
+rebuilds the current paper's primary Qwen-judge results:
 
-- target-bank uncertainty, conditional on the eight evaluated systems;
-- exact model-label permutation inference over the eight model means;
-- prompt-specific and pooled contrasts;
-- complete-case and quality-flag sensitivity analyses;
-- judge-specific effects;
-- item-level human agreement and the human group-contrast check.
-- human-minus-judge residual comparisons by model group, with Holm correction;
-- retained response counts for every missingness and quality-filter sensitivity.
-
-Example:
+- per-model VAD and quality profiles;
+- Ward-linkage clustering on mean V, A, D, and generic-answer rate;
+- cross-model correlations and bootstrap intervals;
+- category- and country-level cluster summaries;
+- paired Qwen/GPT agreement on the available original eight-model subset;
+- the five full-panel publication figures.
 
 ```bash
 python reproduce_publication_stats.py \
   --data-root /path/to/REGARD-data \
-  --output-dir output \
-  --copy-figures-to ../paper
+  --output-dir output
 ```
 
-The cleaned human analysis uses only the 900 assignments listed in `assignments.csv`: three ratings for each of 300 items. Files outside that assignment set are ignored.
+Human-rating inputs are not required for this full-panel runner. They and the
+interface used to collect them are archived separately through OSF.
