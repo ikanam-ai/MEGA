@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "Please cite the relevant VALAR or REGARD paper; project-specific citation files are linked from the README."
+title: "MEGA: Model Evaluation Great Again"
+type: software
+version: 1.0.0
+date-released: 2026-08-21
+license: MIT
+repository-code: "https://github.com/ikanam-ai/MEGA"
+url: "https://github.com/ikanam-ai/MEGA"
+authors:
+  - given-names: Andrei
+    family-names: Chetvergov
+  - given-names: Stepan
+    family-names: Ukolov
+  - given-names: Timofei
+    family-names: Sivoraksha
+  - given-names: Alexander
+    family-names: Evseev
+  - given-names: Mikhail
+    family-names: Solovev
+  - given-names: Valeriia
+    family-names: Kuschenko
+  - given-names: Maria
+    family-names: Chistyakova
+  - given-names: Sergey
+    family-names: Bolovtsov

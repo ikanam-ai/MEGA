@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use REGARD, please cite the paper below."
+title: "REGARD: code and artifacts for Regional Affective Differences in LLMs"
+type: software
+version: 1.0.0
+date-released: 2026-08-21
+license: MIT
+url: "https://github.com/ikanam-ai/MEGA/tree/main/REGARD"
+repository-code: "https://github.com/ikanam-ai/MEGA/tree/main/REGARD/code"
+authors:
+  - given-names: Andrei
+    family-names: Chetvergov
+  - given-names: Alexander
+    family-names: Evseev
+  - given-names: Mikhail
+    family-names: Solovev
+  - given-names: Timofei
+    family-names: Sivoraksha
+  - given-names: Stepan
+    family-names: Ukolov
+  - given-names: Valeriia
+    family-names: Kuschenko
+  - given-names: Maria
+    family-names: Chistyakova
+  - given-names: Sergey
+    family-names: Bolovtsov
+preferred-citation:
+  type: article
+  title: "Regional Affective Differences in LLMs"
+  year: 2026
+  url: "https://arxiv.org/abs/2607.20722"
+  authors:
+    - given-names: Andrei
+      family-names: Chetvergov
+    - given-names: Alexander
+      family-names: Evseev
+    - given-names: Mikhail
+      family-names: Solovev
+    - given-names: Timofei
+      family-names: Sivoraksha
+    - given-names: Stepan
+      family-names: Ukolov
+    - given-names: Valeriia
+      family-names: Kuschenko
+    - given-names: Maria
+      family-names: Chistyakova
+    - given-names: Sergey
+      family-names: Bolovtsov

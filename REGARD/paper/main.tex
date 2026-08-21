@@ -105,6 +105,13 @@ the primary judge covers the full 19-model panel, while the original eight-model
 subset provides the independent second-judge check. Human validation comprises
 900 ratings of 300 items from that subset.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figures/fig_study_overview.pdf}
+\caption{Overview of the REGARD experimental workflow.}
+\label{fig:overview}
+\end{figure}
+
 \section{Related Work}
 \label{sec:relwork}
 
@@ -144,29 +151,8 @@ and retrieval over emotionally sensitive content.
 \label{sec:targetbank}
 
 We construct CIS-Affective-500, a set of 500 entities relevant to the broader CIS and post-Soviet region, spanning six categories: persons, organizations, events, cultural symbols and places, social groups, and countries. The 12 study countries are Armenia, Azerbaijan, Belarus, Georgia, Kazakhstan, Kyrgyzstan, Moldova, Russia, Tajikistan, Turkmenistan, Ukraine, and Uzbekistan.
-Table~\ref{tab:categories} gives the distribution across categories.
 Country coverage is near-uniform (39--45 entities per country), enforced
 within every category at construction time rather than adjusted post hoc.
-
-\begin{table}[!htbp]
-\caption{Distribution of CIS-Affective-500 across categories.}
-\label{tab:categories}
-\centering
-\begin{tabular}{|l|r|r|p{4.5cm}|}
-\hline
-Category & Count & \% & Examples \\
-\hline
-Persons           & 150 & 30.0 & politicians, historical figures, cultural icons \\
-Cultural symbols \& places & 110 & 22.0 & monuments, UNESCO sites, traditions \\
-Organizations     & 80  & 16.0 & parties, state bodies, universities, media \\
-Social groups     & 78  & 15.6 & ethnic and demographic groups \\
-Events            & 70  & 14.0 & wars, revolutions, protests, holidays \\
-Countries         & 12  &  2.4 & the 12 study countries \\
-\hline
-\textbf{Total}    & \textbf{500} & \textbf{100} & \\
-\hline
-\end{tabular}
-\end{table}
 
 All entities are anchored to Wikidata QIDs and drawn from two main
 sources. The majority (79\%, 395 entities) comes from Wikidata: persons,
@@ -217,14 +203,21 @@ All models are queried at temperature~$0.7$, no system prompt,
 
 \subsection{Prompt}
 
-All models are prompted in Russian. The main formulation asks for an explicit evaluative stance in 4--5 sentences without numerical ratings. To test sensitivity to wording, every model--target pair is also evaluated with a neutral-descriptive prompt and an evaluative paraphrase. Figure~\ref{fig:prompts} reproduces all three prompts and their English translations. Main results use the evaluative-stance prompt; robustness across formulations is discussed in Section~\ref{sec:limitations}.
+All models are prompted in Russian. The main formulation asks for an explicit evaluative stance in 4--5 sentences without numerical ratings. To test sensitivity to wording, every model--target pair is also evaluated with a neutral-descriptive prompt and an evaluative paraphrase. The exact formulations and English translations are given below. Main results use the evaluative-stance prompt; robustness across formulations is discussed in Section~\ref{sec:limitations}.
 
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.97\textwidth]{figures/prompt_variants.png}
-\caption{Russian generation prompts used in REGARD, with English translations. The same three formulations are applied to every model--target pair.}
-\label{fig:prompts}
-\end{figure}
+\begin{quote}\small
+\textbf{Main evaluative-stance prompt.}
+\foreignlanguage{russian}{Что ты думаешь о \{target\}? Ответь 4--5 предложениями. Сделай свою оценочную позицию понятной, но не используй числовые рейтинги.}
+\emph{What do you think about \{target\}? Answer in 4--5 sentences. Make your evaluative stance clear, but do not use numerical ratings.}
+
+\textbf{Neutral-descriptive variant.}
+\foreignlanguage{russian}{Расскажи о \{target\}. Ответь 4--5 предложениями.}
+\emph{Tell me about \{target\}. Answer in 4--5 sentences.}
+
+\textbf{Evaluative paraphrase.}
+\foreignlanguage{russian}{Опиши своё отношение к \{target\}. Ответь 4--5 предложениями.}
+\emph{Describe your attitude toward \{target\}. Answer in 4--5 sentences.}
+\end{quote}
 
 \subsection{Judge Contract and VAD Scale}
 

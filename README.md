@@ -40,7 +40,9 @@ Computer Science proceedings of AIST 2026.
 ```text
 MEGA/
   README.md
+  CITATION.cff
   LICENSE
+  LICENSE-CONTENT.md
   .gitignore
   assets/
   docs/
@@ -49,10 +51,12 @@ MEGA/
   PROOF/
   VALAR/
     README.md
+    CITATION.cff
     paper/
     code/
   REGARD/
     README.md
+    CITATION.cff
     paper/
     code/
 ```
@@ -81,14 +85,27 @@ When a track is not yet accepted, its README must include:
 
 Large row-level research data are distributed through the project-specific OSF
 records rather than duplicated in Git. See each project's `DATA_LICENSE.md`
-before redistributing generated outputs or source-derived text.
+inside its `code/` directory before redistributing generated outputs or
+source-derived text.
+
+## Citation
+
+Use the citation for the project you rely on:
+
+- [`VALAR/CITATION.cff`](VALAR/CITATION.cff) for VALAR.
+- [`REGARD/CITATION.cff`](REGARD/CITATION.cff) for REGARD.
+
+The repository-level [`CITATION.cff`](CITATION.cff) describes the MEGA software
+collection. The project READMEs also provide copy-ready BibTeX entries.
 
 ## Licenses
 
-The root license applies to shared MEGA materials. Code licensing is also
-stated inside each published project's `code/` directory. Paper source, third-party
-material, model outputs, and derived datasets are not automatically covered by
-the code licenses.
+- Shared software and project code are released under the
+  [MIT License](LICENSE); project code directories contain matching notices.
+- LaTeX paper sources and original author-created figures are released under
+  [CC BY 4.0](LICENSE-CONTENT.md).
+- Third-party material, source-derived datasets, and model outputs retain their
+  applicable upstream or OSF terms and are not relicensed by the MIT license.
 
 ## Branding
 

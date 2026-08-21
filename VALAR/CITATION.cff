@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use VALAR, please cite the paper below."
+title: "VALAR: code and artifacts for Which Values Do LLMs Confuse?"
+type: software
+version: 1.0.0
+date-released: 2026-08-21
+license: MIT
+url: "https://github.com/ikanam-ai/MEGA/tree/main/VALAR"
+repository-code: "https://github.com/ikanam-ai/MEGA/tree/main/VALAR/code"
+authors:
+  - given-names: Andrei
+    family-names: Chetvergov
+  - given-names: Stepan
+    family-names: Ukolov
+  - given-names: Timofei
+    family-names: Sivoraksha
+  - given-names: Alexander
+    family-names: Evseev
+  - given-names: Mikhail
+    family-names: Solovev
+  - given-names: Valeriia
+    family-names: Kuschenko
+  - given-names: Maria
+    family-names: Chistyakova
+  - given-names: Sergey
+    family-names: Bolovtsov
+preferred-citation:
+  type: article
+  title: "Which Values Do LLMs Confuse? A Schwartz-Based Recognition Study"
+  year: 2026
+  url: "https://arxiv.org/abs/2607.20270"
+  authors:
+    - given-names: Andrei
+      family-names: Chetvergov
+    - given-names: Stepan
+      family-names: Ukolov
+    - given-names: Timofei
+      family-names: Sivoraksha
+    - given-names: Alexander
+      family-names: Evseev
+    - given-names: Mikhail
+      family-names: Solovev
+    - given-names: Valeriia
+      family-names: Kuschenko
+    - given-names: Maria
+      family-names: Chistyakova
+    - given-names: Sergey
+      family-names: Bolovtsov
