@@ -36,18 +36,6 @@ Paper PDFs are linked through arXiv rather than duplicated in this repository.
 Both papers were accepted for publication in the Springer Lecture Notes in
 Computer Science proceedings of AIST 2026.
 
-## Project Overviews
-
-### VALAR
-
-![VALAR task and evaluation overview](VALAR/assets/task-overview.png)
-
-![VALAR dataset construction pipeline](VALAR/assets/dataset-construction.png)
-
-### REGARD
-
-![REGARD study overview](REGARD/assets/study-overview.png)
-
 ## Layout
 
 ```text
