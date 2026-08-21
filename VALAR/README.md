@@ -27,7 +27,7 @@ Until the final LNCS bibliographic record is available, cite:
 ```bibtex
 @article{chetvergov2026values,
   title   = {Which Values Do LLMs Confuse? A Schwartz-Based Recognition Study},
-  author  = {Chetvergov, Andrei and Ukolov, Stepan and Sivoraksha, Timofei and Evseev, Alexander and Solovev, Mikhail and Kuschenko, Valeriia and Chistyakova, Maria and Bolovtsov, Sergey},
+  author  = {Andrei Chetvergov and Stepan Ukolov and Timofei Sivoraksha and Alexander Evseev and Mikhail Solovev and Valeriia Kuschenko and Maria Chistyakova and Sergey Bolovtsov},
   journal = {arXiv preprint arXiv:2607.20270},
   year    = {2026},
   url     = {https://arxiv.org/abs/2607.20270}

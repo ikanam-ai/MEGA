@@ -30,7 +30,7 @@ Until the final LNCS bibliographic record is available, cite:
 ```bibtex
 @article{chetvergov2026regard,
   title   = {Regional Affective Differences in LLMs},
-  author  = {Chetvergov, Andrei and Evseev, Alexander and Solovev, Mikhail and Sivoraksha, Timofei and Ukolov, Stepan and Kuschenko, Valeriia and Chistyakova, Maria and Bolovtsov, Sergey},
+  author  = {Andrei Chetvergov and Alexander Evseev and Mikhail Solovev and Timofei Sivoraksha and Stepan Ukolov and Valeriia Kuschenko and Maria Chistyakova and Sergey Bolovtsov},
   journal = {arXiv preprint arXiv:2607.20722},
   year    = {2026},
   url     = {https://arxiv.org/abs/2607.20722}
