@@ -101,8 +101,8 @@ and generic-answer behaviour?
 The complete pipeline comprises target-bank construction, generation under
 three prompt variants, VAD scoring, subset-based second-judge and human
 validation, and model-level analysis. In total it produces 28,500 responses;
-28,489 valid primary-judge records are retained, while the original eight-model
-subset contributes 12,000 second-judge records. Human validation comprises
+the primary judge covers the full 19-model panel, while the original eight-model
+subset provides the independent second-judge check. Human validation comprises
 900 ratings of 300 items from that subset.
 
 \section{Related Work}
@@ -515,18 +515,19 @@ The evaluative-stance prompt appears to trigger either committed framing
 (low generic, high arousal) or templated deflection (high generic, low arousal),
 with few models occupying a middle ground on both dimensions simultaneously.
 
-\textbf{Dominance follows arousal, not valence.}
+\textbf{Dominance varies across clusters in the same direction as arousal.}
 Cluster~3 (expressive) shows the highest mean dominance ($0.694$),
 followed by Cluster~2 (moderate, $0.670$) and Cluster~1 (evasive, $0.651$),
 a gradient of $+0.043$ units from C1 to C3.
 Valence, by contrast, is nearly flat across clusters
 (C1: $0.719$, C2: $0.706$, C3: $0.724$) --- a C3$-$C1 difference of only $+0.005$.
-Cross-model correlations confirm this: arousal and dominance are tightly linked
-($r = 0.61$ across 19 models), while arousal and valence are essentially unrelated
-($r = 0.17$).
-Generic-answer rate predicts arousal strongly ($r = -0.81$) but dominance only
-moderately ($r = -0.45$), and has no predictive relationship with valence ($r = +0.17$).
-The arousal--dominance co-movement suggests that when a model avoids committing
+Cross-model correlations qualify this cluster-level pattern: arousal and dominance
+are moderately associated ($r = 0.46$ across 19 models), while arousal and valence
+are essentially unrelated ($r = -0.05$).
+Generic-answer rate is strongly associated with arousal ($r = -0.80$), moderately
+associated with dominance ($r = -0.41$), and only weakly associated with valence
+($r = +0.24$; not significant).
+The cluster-level arousal--dominance co-movement suggests that when a model avoids committing
 to a stance, it simultaneously reduces both the intensity and the assertiveness of
 its output, while the positive--negative register remains unchanged.
 
@@ -602,7 +603,7 @@ targets.
 The full VAD breakdown converges on a single conclusion: the cluster structure is
 carried by arousal and, secondarily, by dominance.
 Valence --- the axis captured by conventional sentiment analysis --- is flat across
-clusters, countries, and categories alike ($r(\text{generic}, V) = +0.17$, not
+clusters, countries, and categories alike ($r(\text{generic}, V) = +0.24$, not
 significant).
 Models that deflect evaluative prompts do not produce more negative sentiment; they
 produce \emph{less intense} framing.
