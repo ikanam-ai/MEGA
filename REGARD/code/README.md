@@ -92,4 +92,4 @@ tests/                    offline tests
 ```
 
 Source code is MIT-licensed. See `DATA_LICENSE.md` for data and model-output
-terms and `CITATION.cff` for citation metadata.
+terms and [`../CITATION.cff`](../CITATION.cff) for citation metadata.

@@ -52,7 +52,6 @@ VIBE/
   item_banks/
   scripts/
   results/
-  paper/
 ```
 
 The directories above are not included in the pre-publication scaffold.

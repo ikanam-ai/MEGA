@@ -14,8 +14,9 @@ One repository, multiple self-contained research projects
 
 MEGA (**Make Evaluation Great Again**) is a shared research umbrella for
 studying large language models through complementary model-passport protocols.
-Every MEGA project has its own top-level directory containing its paper,
-executable code, data-access instructions, licenses, and citation metadata.
+Every MEGA project has its own top-level directory containing executable code,
+data-access instructions, a visual overview, licenses, and citation metadata.
+Paper PDFs are linked through arXiv rather than duplicated in this repository.
 
 ## Tracks
 
@@ -35,6 +36,18 @@ executable code, data-access instructions, licenses, and citation metadata.
 Both papers were accepted for publication in the Springer Lecture Notes in
 Computer Science proceedings of AIST 2026.
 
+## Project Overviews
+
+### VALAR
+
+![VALAR task and evaluation overview](VALAR/assets/task-overview.png)
+
+![VALAR dataset construction pipeline](VALAR/assets/dataset-construction.png)
+
+### REGARD
+
+![REGARD study overview](REGARD/assets/study-overview.png)
+
 ## Layout
 
 ```text
@@ -52,12 +65,12 @@ MEGA/
   VALAR/
     README.md
     CITATION.cff
-    paper/
+    assets/
     code/
   REGARD/
     README.md
     CITATION.cff
-    paper/
+    assets/
     code/
 ```
 
@@ -74,8 +87,8 @@ not a claim that the model has human-like inner states.
 ## Project Policy
 
 Pre-publication projects contain templates and protocol descriptions.
-Benchmarks, executable code, item banks, model outputs, and paper artifacts are
-added to the corresponding project directory after the review gate.
+Benchmarks, executable code, item banks, model outputs, and visual summaries
+are added to the corresponding project directory after the review gate.
 
 When a track is not yet accepted, its README must include:
 
@@ -102,7 +115,7 @@ collection. The project READMEs also provide copy-ready BibTeX entries.
 
 - Shared software and project code are released under the
   [MIT License](LICENSE); project code directories contain matching notices.
-- LaTeX paper sources and original author-created figures are released under
+- Repository documentation and original author-created figures are released under
   [CC BY 4.0](LICENSE-CONTENT.md).
 - Third-party material, source-derived datasets, and model outputs retain their
   applicable upstream or OSF terms and are not relicensed by the MIT license.

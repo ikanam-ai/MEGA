@@ -63,4 +63,4 @@ duplicated here: they are archival provenance rather than inputs to the final
 evaluation. They remain available through OSF and Git history.
 
 Source code is MIT-licensed. Dataset and model-output terms are documented in
-`DATA_LICENSE.md`; citation metadata are in `CITATION.cff`.
+`DATA_LICENSE.md`; citation metadata are in [`../CITATION.cff`](../CITATION.cff).

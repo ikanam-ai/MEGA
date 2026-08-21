@@ -3,7 +3,6 @@
 Artifacts for **Which Values Do LLMs Confuse? A Schwartz-Based Recognition
 Study**, accepted to AIST 2026 for publication in Springer LNCS.
 
-- [Current LaTeX paper source](paper/)
 - [Code and released benchmark materials](code/)
 - [Complete data and human-validation artifacts on OSF](https://osf.io/u56kq/overview?view_only=1c3bc242d37247de83e92113d7837be3)
 - [arXiv:2607.20270](https://arxiv.org/abs/2607.20270)
@@ -13,8 +12,13 @@ The paper evaluates 21 instruction-tuned runs on 1,000 Russian situational
 texts labelled with Schwartz's ten basic values. The semantic analysis uses 20
 runs with reliable ranked outputs.
 
-Build the paper from `paper/` with two direct `pdflatex` passes; the supplied
-`main.bbl` makes a separate BibTeX run unnecessary.
+## Study overview
+
+![VALAR task and evaluation overview](assets/task-overview.png)
+
+## Dataset construction
+
+![VALAR dataset construction pipeline](assets/dataset-construction.png)
 
 ## Citation
 
@@ -32,7 +36,7 @@ Until the final LNCS bibliographic record is available, cite:
 
 ## Licenses
 
-Code is released under the [MIT License](code/LICENSE). Paper sources and
-original author-created figures are released under the repository's
-[CC BY 4.0 notice](../LICENSE-CONTENT.md). Dataset-specific terms are described
-in [`code/DATA_LICENSE.md`](code/DATA_LICENSE.md) and on OSF.
+Code is released under the [MIT License](code/LICENSE). Original author-created
+figures are released under the repository's [CC BY 4.0
+notice](../LICENSE-CONTENT.md). Dataset-specific terms are described in
+[`code/DATA_LICENSE.md`](code/DATA_LICENSE.md) and on OSF.

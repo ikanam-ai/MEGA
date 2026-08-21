@@ -1,9 +1,10 @@
-# License for papers and original figures
+# License for documentation and original figures
 
-Unless a file states otherwise, the LaTeX paper sources and original
-author-created figures in `VALAR/paper/` and `REGARD/paper/` are licensed under
+Unless a file states otherwise, repository documentation and original
+author-created figures in the project `assets/` directories are licensed under
 the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
-(CC BY 4.0).
+(CC BY 4.0). The papers themselves are distributed through their publication
+venues and arXiv records, not from this repository.
 
 Copyright © 2026 the respective paper authors.
 
