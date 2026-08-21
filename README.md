@@ -36,32 +36,6 @@ Paper PDFs are linked through arXiv rather than duplicated in this repository.
 Both papers were accepted for publication in the Springer Lecture Notes in
 Computer Science proceedings of AIST 2026.
 
-## Layout
-
-```text
-MEGA/
-  README.md
-  CITATION.cff
-  LICENSE
-  LICENSE-CONTENT.md
-  .gitignore
-  assets/
-  docs/
-  VIBE/
-  STONIC/
-  PROOF/
-  VALAR/
-    README.md
-    CITATION.cff
-    assets/
-    code/
-  REGARD/
-    README.md
-    CITATION.cff
-    assets/
-    code/
-```
-
 ## Measurement Principle
 
 Each track starts with a neutral core profile and only then measures drift
